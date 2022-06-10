@@ -64,37 +64,39 @@ button {
     /*   background-color:red;  */
 
 }
-.task-section p {
-    margin-bottom:5px;
+
+.task-section p span {
+    display:flex;
+/*     align-items:center; */
+  
+}
+.task-item-block {
+    /*   padding:20px; */
+    text-shadow: -2px -2px 3px rgba(255, 255, 255, 1),
+    3px 3px 5px rgba(0, 0, 0, 0.5);
+    /*    box-shadow: 4px 5px 20px rgba(0, 0, 0, 0.5); */
+    border-radius:15px;
+   position:relative;
+
+}
+
+.task-item-block p {
+     margin-bottom:5px;
     background-color:#F75F00;
     padding:10px;
     border-radius:10px;
     display:flex;
     /*   justify-content:space-between; */
     align-items:center;
-
-    
+   box-shadow:-5px -5px 4px #cbcbcb;
 }
-.task-section p span {
-    display:flex;
-    align-items:center;
-
-}
-.task-item-block {
-    /*   padding:20px; */
-    text-shadow: -2px -2px 5px rgba(255, 255, 255, 1),
-    3px 3px 5px rgba(0, 0, 0, 0.5);
-    /*    box-shadow: 4px 5px 20px rgba(0, 0, 0, 0.5); */
-    border-radius:15px;
 
 
-}
-.task-item-block p {
-  
-}
+
 .icon-ok {
     width:32px;
     margin-left:40px;
+  border-radius:50%;
 }
 .icon-ok:hover {
   transform:scale(1.05);
@@ -117,10 +119,10 @@ button {
   color:red;
 } */
 
-.checked  {
+.checked p {
   background-color:darkgray;
-  padding:5px 0 15px 0 ;
-/*   color:red; */
+  animation: lineThrough 1s ease-in-out;
+  transform:rotate(180deg);
 }
 
 
@@ -132,4 +134,12 @@ button {
     opacity: 1;
  } to {
      opacity: 0}
+}
+@keyframes lineThrough {
+ from {
+   transform:rotate(0deg);
+ } to {
+   transform:rotate(180deg);
+ }
+  
 }
