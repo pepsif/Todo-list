@@ -7,7 +7,13 @@ body {
     background-repeat: no-repeat;
     position: relative;
 }
-
+.container {
+    max-width:900px;
+    margin: 0 auto;
+}
+.input-container {
+    display: flex;
+}
 /* --SETTINGS-WINDOW---- */
 .settings-window {
     position: absolute;
@@ -16,7 +22,7 @@ body {
     z-index: 1;
     text-align: center;
     display:none;
-   
+    
 }
 
 .settings-list {
@@ -33,7 +39,7 @@ body {
 .settings-item {
     font-weight: bold;
     padding:5px;
-   
+  
 }
 .settings-item:hover {
     cursor:pointer;
@@ -57,17 +63,48 @@ body {
     cursor:pointer;
 }
 
+/* -------MODAL-WALLPAPERS--WINDOW------ */
+.wallpaper-window {
+      position: absolute;
+    top:0%;
+    width: 100%;
+    z-index: 1;
+    text-align: center;
+    display:none;
+}
+.icon-return {
+    
+}
+.wallpapers-list {
+        list-style: none;
+    background-color: #000000;
+    border-radius: 10px;
+    height:100vh;
+    opacity:.6;
+    color:white;
+    padding-top:20%;
+}
+.wallpapers-item {
+      font-weight: bold;
+    padding:5px;
+}
+.wallpapers-item:hover {
+    cursor:pointer;
+    transform:scale(1.1);
+    background-color:orangered;
+}
+
 /* --MAIN-BLOCK--- */
 .main-block {
     padding: 20px;
     /*    min-height: 100vh; */
     background: #ebf5fc;
     font-family: "Goldman", cursive;
-    display: flex;
+    /* display: flex; */
     /* flex-direction:
     column; */
-    justify-content: end;
-    align-items: flex-start;
+    /* justify-content: end; */
+    /* align-items: flex-start; */
 }
 
 .setting-button {

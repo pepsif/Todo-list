@@ -5,9 +5,13 @@ const taskSection = document.querySelector('.task-section');
 const btnComplete = document.querySelector('.btn-complete');
 const settingButton = document.querySelector('.setting-button');
 const settingWindow = document.querySelector('.settings-window');
+
 const returnButton = document.querySelector('.icon-return');
 
-console.log(returnButton)
+const wallPaperWindow = document.querySelector('.wallpaper-window');
+const returnButtonWallpaper = document.querySelector('.icon-return-wallpaper');
+
+console.log(settingWindow.children[1])
 
 // =========RETURN-BUTTON-COUNTER--------------
 let counter = 0;
@@ -28,8 +32,14 @@ returnButton.onclick = () => {
 }
 // ==============================================
 
-// const iconOk = document.querySelector('.icon-ok');
-// const iconClose = document.querySelector('.icon-close');
+// ----WALLPAPER-WINDOW-AND-COUNTER-ONN-OFF----
+
+
+
+
+
+
+
 
 let arrTasks;
 !localStorage.tasks ? arrTasks = [] : arrTasks = JSON.parse(localStorage.getItem('tasks'));
