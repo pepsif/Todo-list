@@ -32,15 +32,6 @@ returnButton.onclick = () => {
 }
 // ==============================================
 
-// ----WALLPAPER-WINDOW-AND-COUNTER-ONN-OFF----
-
-
-
-
-
-
-
-
 let arrTasks;
 !localStorage.tasks ? arrTasks = [] : arrTasks = JSON.parse(localStorage.getItem('tasks'));
 
@@ -66,13 +57,11 @@ const createTemplate = (task,index)=>{
 const fillHtmlList = ()=>{
     taskSection.innerHTML = '';
     if (arrTasks.length > 0) {
-        arrTasks.forEach((item,index)=>{
+        arrTasks.forEach((item,index) => {
             taskSection.innerHTML += createTemplate(item, index)
-
-        }
+         }
         )
         todoItemElements = document.querySelectorAll('.task-item-block')
-
     }
 }
 const updateLocal = ()=>{

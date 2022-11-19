@@ -1,97 +1,103 @@
 body {
     font-family: "Goldman", cursive;
     background-color: #ebf5fc;
-    background-image: url('assets/img/IMG_4273.png');
     background-position: 50% 170px, -400px 300px;
     background-size: 420px 100%, 280% 700%;
     background-repeat: no-repeat;
     position: relative;
 }
+
 .container {
-    max-width:900px;
+    max-width: 900px;
     margin: 0 auto;
 }
+
 .input-container {
     display: flex;
 }
+
 /* --SETTINGS-WINDOW---- */
 .settings-window {
     position: absolute;
-    top:0%;
+    top: 0;
     width: 100%;
+    height: 100%;
     z-index: 1;
     text-align: center;
-    display:none;
-    
+    display: none;
 }
 
 .settings-list {
     list-style: none;
     background-color: #000000;
     border-radius: 10px;
-    height:100vh;
-    opacity:.6;
-    color:white;
-    padding-top:20%;
-  
+    height: 100vh;
+    opacity: .6;
+    color: white;
+    padding-top: 20%;
 }
 
 .settings-item {
     font-weight: bold;
-    padding:5px;
-  
+    padding: 5px;
 }
+
 .settings-item:hover {
-    cursor:pointer;
-    transform:scale(1.1);
-    background-color:orangered;
+    cursor: pointer;
+    transform: scale(1.1);
+    background-color: orangered;
 }
+
 /*    ---ICON-RETURN------- */
 .icon-return {
-    width:50px;
-    position:absolute;
-    left:5%;
-    top:5%;
-    background-color:white;
-    padding:20px;
-    border-radius:10px;
-    z-index:1;
-    transition:.3s;
+    width: 50px;
+    position: absolute;
+    left: 2%;
+    top: 10%;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1;
+    transition: .3s;
 }
+
 .icon-return:hover {
-    background-color:orangered;
-    cursor:pointer;
+    background-color: orangered;
+    cursor: pointer;
 }
 
 /* -------MODAL-WALLPAPERS--WINDOW------ */
 .wallpaper-window {
-      position: absolute;
-    top:0%;
+    position: absolute;
+    top: 0;
     width: 100%;
     z-index: 1;
     text-align: center;
-    display:none;
+    display: none;
 }
+
 .icon-return {
-    
 }
+
 .wallpapers-list {
-        list-style: none;
+    list-style: none;
     background-color: #000000;
     border-radius: 10px;
-    height:100vh;
-    opacity:.6;
-    color:white;
-    padding-top:20%;
+    height: 100vh;
+    opacity: .6;
+    color: white;
+    padding-top: 20%;
 }
+
 .wallpapers-item {
-      font-weight: bold;
-    padding:5px;
+    font-weight: bold;
+    padding: 5px;
 }
+
 .wallpapers-item:hover {
-    cursor:pointer;
-    transform:scale(1.1);
-    background-color:orangered;
+    cursor: pointer;
+    transform: scale(1.1);
+    background-color: orangered;
 }
 
 /* --MAIN-BLOCK--- */
@@ -216,9 +222,30 @@ button {
   color:red;
 } */
 .checked p {
-    background-color: darkgray;
-    animation: lineThrough 1s ease-in-out;
-    transform: rotate(180deg);
+    background-color: #f0dcdc;
+    /*     animation: lineThrough 1s ease-in-out; */
+    position: relative;
+}
+
+.checked p::before {
+    content: '';
+    background: url('../assets/icons/done-icon.png');
+    background-size: 40px 40px;
+    padding: 20px 20px;
+    position: absolute;
+    left: -25%;
+    text-shadow:2px 2px  black;
+}
+
+.checked p::after {
+    content: '';
+    background: url('../assets/icons/red-cross.png');
+    background-size: 250px 180px;
+    background-repeat: no-repeat;
+    padding: 100px 100px;
+    position: absolute;
+    top: -120%;
+    right: 30%;
 }
 
 .task-item-block.delition {
@@ -242,5 +269,15 @@ button {
 
     to {
         transform: rotate(180deg);
+    }
+}
+
+@keyframes color {
+    from {
+        color: red;
+    }
+
+    to {
+        color: green;
     }
 }
