@@ -1,283 +1,259 @@
 body {
-    font-family: "Goldman", cursive;
-    background-color: #ebf5fc;
-    background-position: 50% 170px, -400px 300px;
-    background-size: 420px 100%, 280% 700%;
-    background-repeat: no-repeat;
-    position: relative;
+  font-family: "Goldman", cursive;
+  background: #879d80;
+  background-position: 50% 170px, -400px 300px;
+  background-size: 420px 100%, 280% 700%;
+  background-repeat: no-repeat;
+  position: relative;
 }
 
 .container {
-    max-width: 900px;
-    margin: 0 auto;
+  max-width: 900px;
+  margin: 0 auto;
 }
 
 .input-container {
-    display: flex;
+  display: flex;
 }
 
 /* --SETTINGS-WINDOW---- */
 .settings-window {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    text-align: center;
-    display: none;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  text-align: center;
+  display: none;
 }
 
 .settings-list {
-    list-style: none;
-    background-color: #000000;
-    border-radius: 10px;
-    height: 100vh;
-    opacity: .6;
-    color: white;
-    padding-top: 20%;
+  list-style: none;
+  background-color: #000000;
+  border-radius: 10px;
+  height: 100vh;
+  opacity: 0.9;
+  color: white;
+  padding-top: 20%;
 }
 
 .settings-item {
-    font-weight: bold;
-    padding: 5px;
+  font-weight: bold;
+  padding: 5px;
 }
 
 .settings-item:hover {
-    cursor: pointer;
-    transform: scale(1.1);
-    background-color: orangered;
+  cursor: pointer;
+  transform: scale(1.1);
+  background-color: orangered;
 }
 
 /*    ---ICON-RETURN------- */
 .icon-return {
-    width: 50px;
-    position: absolute;
-    left: 2%;
-    top: 10%;
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    z-index: 1;
-    transition: .3s;
+  width: 50px;
+  position: absolute;
+  left: 2%;
+  top: 10%;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  z-index: 1;
+  transition: 0.3s;
 }
 
 .icon-return:hover {
-    background-color: orangered;
-    cursor: pointer;
+  background-color: orangered;
+  cursor: pointer;
 }
 
 /* -------MODAL-WALLPAPERS--WINDOW------ */
 .wallpaper-window {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: 1;
-    text-align: center;
-    display: none;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  text-align: center;
+  display: none;
 }
 
 .icon-return {
 }
 
 .wallpapers-list {
-    list-style: none;
-    background-color: #000000;
-    border-radius: 10px;
-    height: 100vh;
-    opacity: .6;
-    color: white;
-    padding-top: 20%;
+  list-style: none;
+  background-color: #000000;
+  border-radius: 10px;
+  height: 100vh;
+  opacity: 0.6;
+  color: white;
+  padding-top: 20%;
 }
 
 .wallpapers-item {
-    font-weight: bold;
-    padding: 5px;
+  font-weight: bold;
+  padding: 5px;
 }
 
 .wallpapers-item:hover {
-    cursor: pointer;
-    transform: scale(1.1);
-    background-color: orangered;
+  cursor: pointer;
+  transform: scale(1.1);
+  background-color: orangered;
 }
 
 /* --MAIN-BLOCK--- */
 .main-block {
-    padding: 20px;
-    /*    min-height: 100vh; */
-    background: #ebf5fc;
-    font-family: "Goldman", cursive;
-    /* display: flex; */
-    /* flex-direction:
-    column; */
-    /* justify-content: end; */
-    /* align-items: flex-start; */
+  padding: 20px;
+
+  font-family: "Goldman", cursive;
 }
 
 .setting-button {
-    width: 80px;
+  width: 80px;
 }
 
 .setting-button:hover {
-    background-color: orangered;
+  background-color: orangered;
 }
 
 .setting-button-image {
-    width: 50px;
+  width: 50px;
 }
 
 .input {
-    width: 65%;
-    height: 40px;
-    padding: 10px;
-    margin-top: 10px;
-    border: none;
-    text-align: center;
-    border-radius: 10px;
-    /*     margin-bottom: 15px; */
-    background-color: #ebf5fc;
-    box-shadow: inset -2px -2px 5px rgba(255, 255, 255, 1), inset 3px 3px 5px rgba(0, 0, 0, 0.1);
-    font-family: "Goldman", cursive;
-    font-weight: 600;
+  width: 65%;
+  height: 40px;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  text-align: center;
+  border-radius: 10px;
+  /*     margin-bottom: 15px; */
+  background-color: #879d80;
+  box-shadow: inset -2px -2px 5px rgb(184, 180, 180),
+    inset 3px 3px 5px rgba(0, 0, 0, 0.1);
+  font-family: "Goldman", cursive;
+  font-weight: 600;
 }
 
 input:focus {
-    /*   color:red; */
-    /*   padding:20px; */
+  /*   color:red; */
+  /*   padding:20px; */
 }
 
 button {
-    width: 25%;
-    height: 60px;
-    background: #ebf5fc;
-    margin: 10px;
-    box-shadow: -2px -2px 5px rgba(255, 255, 255, 1), 3px 3px 5px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    border: none;
-    font-family: "Goldman", cursive;
-    font-weight: 600;
+  width: 25%;
+  height: 60px;
+  background: #879d80;
+  margin: 10px;
+  box-shadow: 16px 16px 32px #70826a, -16px -16px 32px #9eb896;
+  border-radius: 10px;
+  border: none;
+  font-family: "Goldman", cursive;
+  font-weight: 600;
 }
 
 .button-ok {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 
 .task-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    /*   justify-content:center; */
-    /*   background-color:red;  */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /*   justify-content:center; */
+  /*   background-color:red;  */
 }
 
 .task-section p span {
-    display: flex;
-    /*     align-items:center; */
 }
 
 .task-item-block {
-    /*   padding:20px; */
-    text-shadow: -2px -2px 3px rgba(255, 255, 255, 1), 3px 3px 5px rgba(0, 0, 0, 0.5);
-    /*    box-shadow: 4px 5px 20px rgba(0, 0, 0, 0.5); */
-    border-radius: 15px;
-    position: relative;
+  text-shadow: -2px -2px 3px rgba(255, 255, 255, 1),
+    3px 3px 5px rgba(0, 0, 0, 0.5);
+  margin: 6px;
+  border-radius: 20px;
+
+  box-shadow: 16px 16px 32px #70826a, -16px -16px 32px #9eb896;
 }
 
 .task-item-block p {
-    margin-bottom: 5px;
-    background-color: #F75F00;
-    padding: 10px;
-    border-radius: 10px;
-    display: flex;
-    /*   justify-content:space-between; */
-    align-items: center;
-    box-shadow: -5px -5px 4px #cbcbcb;
+  /* background-color: #F75F00; */
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  /*   justify-content:space-between; */
+  align-items: center;
 }
 
 .icon-ok {
-    width: 32px;
-    margin-left: 40px;
-    border-radius: 50%;
+  width: 32px;
+  margin-left: 40px;
+  border-radius: 50%;
 }
 
 .icon-ok:hover {
-    transform: scale(1.05);
-    transition: 0.3s;
+  transform: scale(1.05);
+  transition: 0.3s;
 }
 
 .icon-close {
-    width: 32px;
-    border-radius: 50%;
+  width: 32px;
+  border-radius: 50%;
 }
 
 .icon-close:hover {
-    transform: scale(1.05);
-    transition: 0.3s;
+  transform: scale(1.05);
+  transition: 0.3s;
 }
 
-/* .active-task span {
-  width:220vh;
-  height:10vh;
-  background-color:red;
-  padding:10px;
-  color:red;
-} */
 .checked p {
-    background-color: #f0dcdc;
-    /*     animation: lineThrough 1s ease-in-out; */
-    position: relative;
+  background-color: #f0dcdc;
+  /*     animation: lineThrough 1s ease-in-out; */
+  position: relative;
+  opacity: 0.3;
 }
 
 .checked p::before {
-    content: '';
-    background: url('../assets/icons/done-icon.png');
-    background-size: 40px 40px;
-    padding: 20px 20px;
-    position: absolute;
-    left: -25%;
-    text-shadow:2px 2px  black;
-}
-
-.checked p::after {
-    content: '';
-    background: url('../assets/icons/red-cross.png');
-    background-size: 250px 180px;
-    background-repeat: no-repeat;
-    padding: 100px 100px;
-    position: absolute;
-    top: -120%;
-    right: 30%;
+  content: "";
+  background: url("../assets/icons/done-icon.png") no-repeat;
+  background-size: 30px 30px;
+  padding: 20px 20px;
+  position: absolute;
+  left: -25%;
+  top: 20%;
+  text-shadow: 2px 2px black;
 }
 
 .task-item-block.delition {
-    animation: opacity 1s ease-in-out;
+  animation: opacity 1s ease-in-out;
 }
 
 @keyframes opacity {
-    from {
-        opacity: 1;
-    }
+  from {
+    opacity: 1;
+  }
 
-    to {
-        opacity: 0
-    }
+  to {
+    opacity: 0;
+  }
 }
 
 @keyframes lineThrough {
-    from {
-        transform: rotate(0deg);
-    }
+  from {
+    transform: rotate(0deg);
+  }
 
-    to {
-        transform: rotate(180deg);
-    }
+  to {
+    transform: rotate(180deg);
+  }
 }
 
 @keyframes color {
-    from {
-        color: red;
-    }
+  from {
+    color: red;
+  }
 
-    to {
-        color: green;
-    }
+  to {
+    color: green;
+  }
 }
