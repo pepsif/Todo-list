@@ -47,8 +47,8 @@ const createTemplate = (task,index)=>{
         <p>${task.description}
           <span>
             
-            <img class="icon-ok" onclick="completeTask(${index})" src="https://iconarchive.com/download/i85367/graphicloads/android-settings/tick.ico" alt="buttonok">
-          <img class="icon-close" onclick="deleteTask(${index})" src="https://cpng.pikpng.com/pngl/s/302-3024323_close-icon-close-icon-free-png-clipart.png" alt="button close">
+            <img class="icon-ok" onclick="completeTask(${index})" src="./assets/icons/check-mark.png" alt="buttonok">
+          <img class="icon-close" onclick="deleteTask(${index})" src="./assets/icons/close.png" alt="button close">
           </span>
          </p>
         </div> `
