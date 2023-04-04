@@ -5,13 +5,14 @@ const taskSection = document.querySelector('.task-section');
 const btnComplete = document.querySelector('.btn-complete');
 const settingButton = document.querySelector('.setting-button');
 const settingWindow = document.querySelector('.settings-window');
+const settingList = document.querySelector('.settings-list');
 
 const returnButton = document.querySelector('.icon-return');
 
 const wallPaperWindow = document.querySelector('.wallpaper-window');
 const returnButtonWallpaper = document.querySelector('.icon-return-wallpaper');
 
-console.log(settingWindow.children[1])
+console.log(settingList)
 
 // =========RETURN-BUTTON-COUNTER--------------
 let counter = 0;
@@ -30,7 +31,17 @@ returnButton.onclick = () => {
    settingWindow.style.display = 'none';
     counter = 0;
 }
-// ==============================================
+// ---   SETINGS list ------===
+settingList.addEventListener('click', settingClick)
+
+function settingClick (e) {
+    console.log(e.target)
+}
+
+
+
+
+
 
 let arrTasks;
 !localStorage.tasks ? arrTasks = [] : arrTasks = JSON.parse(localStorage.getItem('tasks'));
