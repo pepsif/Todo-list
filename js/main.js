@@ -12,6 +12,13 @@ const returnButton = document.querySelector('.icon-return');
 const wallPaperWindow = document.querySelector('.wallpaper-window');
 const returnButtonWallpaper = document.querySelector('.icon-return-wallpaper');
 
+input.addEventListener('click',clearInput);
+
+function clearInput(e) {
+    input.value = "";
+    console.log(e)
+}
+
 
 // =========RETURN-BUTTON-COUNTER--------------
 let counter = 0;

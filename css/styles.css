@@ -7,20 +7,14 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Goldman", cursive;
-  /* background: url(../assets/img/109595-tkan-sinij_cvet-uzor-lazur-marketing-1920x1080.jpg); */
-  background: #3C3B3F;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #605C3C, #3C3B3F);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #605C3C, #3C3B3F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  
-
-  /* background: #424b5d; */
-  /* background-position: 50% 170px, -400px 300px; */
-  /* background-size: 420px 100%, 280% 700%; */
-  background-size: cover;
+  background: url(../assets/img/2147786544.jpg);
+/* background-position: 80% 20%;
+  background-size: 160%;
+  background-repeat: no-repeat; */
   
   position: relative;
   color: slategrey;
-  text-shadow: 2px 2px 1px rgb(0, 0, 0);
+  /* text-shadow: 2px 2px 1px rgb(0, 0, 0); */
 }
 
 .container {
@@ -230,13 +224,11 @@ button {
   margin: 6px;
   /* border-radius: 20px; */
   padding: 10px 10px 10px 40px;
-  
-
-  
+ 
   border-image-slice: 160;
   border-style: dashed;
   border-width: 6px;
-  border-color: rgba(36, 40, 50, .6);
+  border-color: rgb(255 66 66);;
   border-radius: 20px;
 
  
@@ -246,14 +238,14 @@ button {
   /* padding: 10px 20px; */
   /* border-radius: 10px; */
   display: flex;
-
+font-size: 20px;
   align-items: center;
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   
 }
 
 .icon-ok {
-  width: 32px;
+  width: 26px;
   margin-left: 40px;
   border-radius: 50%;
 }
@@ -264,7 +256,7 @@ button {
 }
 
 .icon-close {
-  width: 32px;
+  width: 26px;
   position: relative;
   top: 2px;
   border-radius: 50%;
