@@ -63,13 +63,19 @@ function Task( description, year, month, day, hours, minutes) {
 
 }
 
+ // 72 row <img class="icon-ok" onclick="completeTask(${index})" src="./assets/icons/check-mark.png" alt="buttonok">
+
 const createTemplate = (task, index)=>{
 
-        return `<div class="task-item-block ${task.completed ? 'checked' : ''}">
-        <p>${task.description}
+        return `<div class="task-item-block  ${task.completed ? 'checked' : ''} ">
+
+        <img class="icon-ok" onclick="completeTask(${index})" src="./assets/icons/check-mark.png" alt="buttonok">
+        <p>
+           
+        ${task.description}
           <span>
             
-            <img class="icon-ok" onclick="completeTask(${index})" src="./assets/icons/check-mark.png" alt="buttonok">
+         
           <img class="icon-close" onclick="deleteTask(${index})" src="./assets/icons/close.png" alt="button close">
           </span>
 

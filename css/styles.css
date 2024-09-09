@@ -6,7 +6,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: "Goldman", cursive;
+  /* font-family: "Goldman", cursive; */
   background: url(../assets/img/2147786544.jpg);
 /* background-position: 80% 20%;
   background-size: 160%;
@@ -25,7 +25,7 @@ body {
 .input-container {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-evenly;
 }
 
 /* --SETTINGS-WINDOW---- */
@@ -127,8 +127,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: url(../assets/Vector.png) no-repeat center center;
-
+  background: url(../assets/icons/setting.png) no-repeat center center;
+opacity: .8;
   background-size: 50px;
   width: 60px;
   height: 60px;
@@ -191,7 +191,7 @@ button {
 
   width: 60px;
   height: 60px;
-opacity: .8;
+opacity: .9;
   /* box-shadow: -1px -1px 1px rgba(255, 255, 255, 1),
     1px 1px 1px rgba(255, 255, 255, 0.5);
     border-radius: 50%; */
@@ -217,13 +217,14 @@ opacity: .8;
 
 .task-item-block {
   display: flex;
+  align-items: center;
   position: relative;
 
   /* text-shadow: -1px -2px 3px rgba(255, 255, 255, 1),
     3px 3px 5px rgba(0, 0, 0, 0.5); */
   margin: 6px;
   /* border-radius: 20px; */
-  padding: 10px 10px 10px 40px;
+  /* padding: 10px 10px 10px 40px; */
  
   border-image-slice: 160;
   border-style: groove;
@@ -231,7 +232,10 @@ opacity: .8;
   border-color: rgb(255 66 66);;
   border-radius: 20px;
 
- 
+  border-radius: 25px;
+  background: #e0e0e0;
+  box-shadow: inset 6px 6px 16px #9d9d9d,
+              inset -6px -6px 16px #ffffff;
 }
 
 .task-item-block p {
@@ -245,9 +249,8 @@ font-size: 20px;
 }
 
 .icon-ok {
-  width: 26px;
-  margin-left: 40px;
-  border-radius: 50%;
+  width: 24px;
+  height: 24px;
 }
 
 .icon-ok:hover {
