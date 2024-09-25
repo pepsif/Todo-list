@@ -67,10 +67,10 @@ function Task( description, year, month, day, hours, minutes) {
 
 const createTemplate = (task, index)=>{
 
-        return `<div class="task-item-block  ${task.completed ? 'checked' : ''} ">
+        return `<div class="task-item-block  ${task.completed ? 'checked' : ''} "  onclick="completeTask(${index})">
 
-        <img class="icon-ok" onclick="completeTask(${index})" src="./assets/icons/check-mark.png" alt="buttonok">
-        <p>
+        
+        <div>
            
         ${task.description}
           <span>
@@ -84,7 +84,7 @@ const createTemplate = (task, index)=>{
             <p class="data-time">${ task.hours<10 ? "0"+task.hours : task.hours } : ${ task.minutes < 10 ? "0" + task.minutes : task.minutes }</p>
           </div>
 
-         </p>
+         </div>
         </div> `
 }
 

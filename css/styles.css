@@ -7,10 +7,10 @@ body {
   margin: 0;
   padding: 0;
   /* font-family: "Goldman", cursive; */
-  background: url(../assets/img/2147786544.jpg);
-/* background-position: 80% 20%;
-  background-size: 160%;
-  background-repeat: no-repeat; */
+  background: url("../assets/img/2147786544.jpg");
+
+  background-repeat: no-repeat; 
+  background-size: cover;
   
   position: relative;
   color: slategrey;
