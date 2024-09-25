@@ -77,7 +77,7 @@ const createTemplate = (task, index)=>{
             <p class="data-time">${ task.hours<10 ? "0"+task.hours : task.hours } : ${ task.minutes < 10 ? "0" + task.minutes : task.minutes }</p>
           </div>
 
-          <div>
+          <div class="close-block">
            <img class="icon-close" onclick="deleteTask(${index})" src="./assets/icons/close.png" alt="button close">
           </div>
          
