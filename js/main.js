@@ -12,7 +12,7 @@ const returnButton = document.querySelector('.icon-return');
 const wallPaperWindow = document.querySelector('.wallpaper-window');
 const returnButtonWallpaper = document.querySelector('.icon-return-wallpaper');
 
-input.addEventListener('click',clearInput);
+input ? input.addEventListener('click',clearInput) : null;
 
 function clearInput(e) {
     input.value = "";
