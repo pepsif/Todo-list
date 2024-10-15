@@ -66,7 +66,7 @@ function Task( description, year, month, day, hours, minutes) {
 
 const createTemplate = (task, index)=>{
 
-        return `<div class="task-item-block  ${task.completed ? 'checked' : ''} "  onclick="completeTask(${index})">
+        return `<div class="task-item-block  ${task.completed ? 'checked' : ''}"  onclick="completeTask(${index})">
 
            
         ${task.description}
