@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Goldman";
+  src: url(../assets/font/Goldman/Goldman-Regular.ttf);
+}
+
 * p {
   margin: 0;
   padding: 0;
