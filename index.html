@@ -1,59 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="./css/styles.css">
-    <link rel="stylesheet" href="./css/adaptive.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/adaptive.css" />
     <title>To do App</title>
-</head>
-<body>
-
-  
-
-<div class="settings-window">
-<img src="assets/icons/icon-return.png" class="icon-return" alt="icon return">
-    <ul class="settings-list">
-        <a href="./wallpaper.html"><li class="settings-item">Wallpaper</li></a> 
-        <li class="settings-item">Backgrounds</li>
-        <li class="settings-item">About</li>
-    </ul>
-</div>
-
-   
+  </head>
+  <body>
+    <div class="settings-window">
+      <div class="settings-container container">
+        <img
+          src="assets/icons/icon-return.png"
+          class="icon-return"
+          alt="icon return"
+        />
+        <ul class="settings-list">
+          <li class="settings-item">
+            <a href="./wallpaper.html">Wallpaper</a>
+          </li>
+          <li class="settings-item">About</li>
+        </ul>
+      </div>
+    </div>
 
     <div class="wallpaper-window">
-        <img src="assets/icons/setting.png.png" class="icon-return-wallpaper" alt="icon return">
-            <ul class="wallpapers-list">
-                <li class="wallpapers-item">1</li>
-                <li class="wallpapers-item">2</li>
-                <li class="wallpapers-item">3</li>
-            </ul>
-        </div>
+      <img
+        src="assets/icons/setting.png.png"
+        class="icon-return-wallpaper"
+        alt="icon return"
+      />
+      <ul class="wallpapers-list">
+        <li class="wallpapers-item">1</li>
+        <li class="wallpapers-item">2</li>
+        <li class="wallpapers-item">3</li>
+      </ul>
+    </div>
 
-        
-<div class="main-block">
-   <div class="container input-container">
+    <div class="main-block">
+      <div class="container input-container">
         <button class="setting-button"></button>
-    <input class="input" value="Нове Завдання" onfocus="this. value=''">
-    <button class="button-ok"></button>
-   </div> 
+        <input class="input" value="Нове Завдання" onfocus="this. value=''" />
+        <button class="button-ok"></button>
+      </div>
+    </div>
 
-</div>
+    <section class="tabs">
+      <div class="container"></div>
+    </section>
 
+    <section class="task-section"></section>
 
-<section class="tabs">
- <div class="container">
-   
- </div>
-</section>
-
-
-<section class="task-section">
-
-</section>
-
-
-<script src="js/main.js"></script>
-</body>
+    <script src="js/main.js"></script>
+  </body>
 </html>

@@ -124,14 +124,14 @@ buttonOk.addEventListener('click', ()=>{
     arrTasks.push(new Task( input.value, year, month, day, hours, minutes) );
     updateLocal();
     fillHtmlList();
-    input.value = '';
+    input.value = 'Нове завдання';
 
 }
 )
-const deleteTask = index=>{
+const deleteTask = index => {
     todoItemElements[index].classList.add('delition');
-    setTimeout(()=>{
-        arrTasks.splice(index, 1)
+    setTimeout( () => {
+        arrTasks.splice( index, 1 )
         updateLocal();
         fillHtmlList();
     }
