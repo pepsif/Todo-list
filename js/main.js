@@ -8,11 +8,21 @@ const settingWindow = document.querySelector(".settings-window");
 const settingList = document.querySelector(".settings-list");
 
 const returnButton = document.querySelector(".icon-return");
+const modalWallpaperReturnIcon = document.querySelector(".modal-wallpaper-return-icon");
 
 const wallPaperWindow = document.querySelector(".wallpaper-window");
 const modalWallpaperButton = document.querySelector(".modal-wallpaper-button");
 const modalWallpaperWindow = document.querySelector(".modal-wallpaper-window");
 const returnButtonWallpaper = document.querySelector(".icon-return-wallpaper");
+
+//  --Wallpaper Card --
+const wallPaperCardContainer = document.querySelector(".modal-wallpaper__container container");
+
+// wallPaperCardContainer.addEventListener("click", setWallPaperCardInStorage );
+
+function setWallPaperCardInStorage() {
+  
+}
 
 input ? input.addEventListener("click", clearInput) : null;
 
@@ -21,30 +31,34 @@ function clearInput(e) {
   console.log(e);
 }
 
+modalWallpaperReturnIcon.onclick = () => {
+  modalWallpaperWindow.style.visibility = 'hidden';
+  returnButton.style.visibility = 'visible';
+}
+
+
 // =========RETURN-BUTTON-COUNTER--------------
-let counter = 0;
+
 settingButton.onclick = () => {
-  if (counter === 1) {
-    settingWindow.style.display = "none";
-    counter = 0;
-    return;
-  } else {
-    settingWindow.style.display = "block";
-    counter = 1;
-    return;
-  }
+
+    settingWindow.style.visibility = "visible";
+    returnButton.style.visibility = "visible";
+ 
 };
 
+//  --RETURN BUTTOn --
 returnButton.onclick = () => {
-  settingWindow.style.display = "none";
-  counter = 0;
-};
+  settingWindow.style.visibility = "hidden";
+  returnButton.style.visibility = 'hidden';
+  
+ };
 
 // --MODAL SETTINGS BUTTON --
 modalWallpaperButton.addEventListener("click", modalWallpaperWindowToggle);
 
 function modalWallpaperWindowToggle() {
-    modalWallpaperWindow.style.display = 'block';
+  returnButton.style.visibility ='hidden';
+    modalWallpaperWindow.style.visibility = 'visible';
     modalWallpaperWindow.style.zIndex =1;
     console.log(modalWallpaperWindow.style)
   
