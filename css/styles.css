@@ -16,7 +16,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Comiс", sans-serif;
-  background: url("../assets/img/2147786544.jpg");
+  background: url("../assets/img/paper2.jpg");
 
   background-repeat: no-repeat;
   background-size: cover;
@@ -97,7 +97,7 @@ height: 100vh;
 position: absolute;
 top: 0;
 left: 0;
-/* display: none; */
+background-color: #878f9e;
 visibility: hidden;
 }
 .modal-wallpaper__container {
@@ -121,16 +121,14 @@ visibility: hidden;
   padding: 10px;
   border-radius: 10px;
   z-index: 1;
- /* visibility: hidden; */
+  visibility: hidden;
 }
 
 .icon-return:hover {
   background-color: #4a6399;
   cursor: pointer;
 }
-.modal-wallpaper-return-icon {
- top: 6%;
-}
+
 .modal-wallpaper-button {
   background-color: inherit;
   color: white;
@@ -150,7 +148,21 @@ visibility: hidden;
   visibility: hidden;
 }
 
-.icon-return {
+.modal-wallpaper-return-icon {
+  width: 30px;
+  position: absolute;
+  left: 2%;
+  top: 10%;
+  background-color: white;
+  padding: 10px;
+  border-radius: 10px;
+  z-index: 1;
+  /*visibility: hidden;*/
+
+  &:hover {
+    background-color: #4a6399;
+    cursor: pointer;
+  }
 }
 
 .wallpapers-list {

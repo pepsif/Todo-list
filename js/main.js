@@ -1,28 +1,65 @@
 const input = document.querySelector(".input");
 const buttonOk = document.querySelector(".button-ok");
-const buttonClear = document.querySelector(".button-clear");
+
 const taskSection = document.querySelector(".task-section");
-const btnComplete = document.querySelector(".btn-complete");
+
 const settingButton = document.querySelector(".setting-button");
 const settingWindow = document.querySelector(".settings-window");
-const settingList = document.querySelector(".settings-list");
 
 const returnButton = document.querySelector(".icon-return");
-const modalWallpaperReturnIcon = document.querySelector(".modal-wallpaper-return-icon");
 
-const wallPaperWindow = document.querySelector(".wallpaper-window");
 const modalWallpaperButton = document.querySelector(".modal-wallpaper-button");
 const modalWallpaperWindow = document.querySelector(".modal-wallpaper-window");
-const returnButtonWallpaper = document.querySelector(".icon-return-wallpaper");
+const returnButtonWallpaper = document.querySelector(".modal-wallpaper-return-icon");
 
-//  --Wallpaper Card --
-const wallPaperCardContainer = document.querySelector(".modal-wallpaper__container container");
+console.log(returnButtonWallpaper)
 
-// wallPaperCardContainer.addEventListener("click", setWallPaperCardInStorage );
+const wallPaperCardsContainer = document.querySelector(".modal-wallpaper__container");
 
-function setWallPaperCardInStorage() {
-  
+
+settingButton.onclick = () => {
+  settingWindow.style.visibility = "visible";
+  returnButton.style.visibility = "visible";
+
+};
+//  --RETURN BUTTOn --
+returnButton.onclick = () => {
+  settingWindow.style.visibility = "hidden";
+  returnButton.style.visibility = 'hidden';
+
+};
+
+// --MODAL SETTINGS BUTTON --
+modalWallpaperButton.addEventListener("click", modalWallpaperWindowToggle );
+
+function modalWallpaperWindowToggle() {
+  modalWallpaperWindow.style.visibility = 'visible';
+  returnButtonWallpaper.style.visibility = 'visible';
+  modalWallpaperWindow.style.zIndex = "1";
+
+  let test = document.querySelector(".modal-wallpaper-return-icon").onclick = () => {
+    modalWallpaperWindow.style.visibility = 'hidden';
+    returnButtonWallpaper.style.visibility = 'hidden';
+  };
+
+
 }
+
+const wallpaperCards = [ { id: 1, title: "Джинс", src: './assets/img/jeans1.jpg'},
+  { id: 2, title: 'Джинс' , src: './assets/img/jeans2.jpg' } ,
+  { id: 3, title: 'Дермантин' , src: './assets/img/dermantin.jpg' } ,
+  { id: 4, title: 'Папір' , src: './assets/img/paper1.jpg' } ,
+  { id: 5, title: 'Папір' , src: './assets/img/paper2.jpg' } ,
+  
+];
+
+wallpaperCards.forEach(( item, index ) => {
+
+  wallPaperCardsContainer.innerHTML += `<div class="wallpaper-card">
+  <img class="card-image" 
+  src=" ${item.src} " alt="" srcset=""> <p> ${item.title} </p> </div>`;
+  console.log(item, index)
+})
 
 input ? input.addEventListener("click", clearInput) : null;
 
@@ -31,45 +68,49 @@ function clearInput(e) {
   console.log(e);
 }
 
-modalWallpaperReturnIcon.onclick = () => {
-  modalWallpaperWindow.style.visibility = 'hidden';
-  returnButton.style.visibility = 'visible';
-}
 
 
-// =========RETURN-BUTTON-COUNTER--------------
 
-settingButton.onclick = () => {
+// // =========RETURN-BUTTON-COUNTER--------------
+//
+// settingButton.onclick = () => {
+//
+//   settingWindow.style.visibility = "visible";
+//   returnButton.style.visibility = "visible";
+//
+// };
+//
+// //  --RETURN BUTTOn --
+// returnButton.onclick = () => {
+//   settingWindow.style.visibility = "hidden";
+//   returnButton.style.visibility = 'hidden';
+//
+// };
 
-    settingWindow.style.visibility = "visible";
-    returnButton.style.visibility = "visible";
- 
-};
-
-//  --RETURN BUTTOn --
-returnButton.onclick = () => {
-  settingWindow.style.visibility = "hidden";
-  returnButton.style.visibility = 'hidden';
-  
- };
-
-// --MODAL SETTINGS BUTTON --
-modalWallpaperButton.addEventListener("click", modalWallpaperWindowToggle);
-
-function modalWallpaperWindowToggle() {
-  returnButton.style.visibility ='hidden';
-    modalWallpaperWindow.style.visibility = 'visible';
-    modalWallpaperWindow.style.zIndex =1;
-    console.log(modalWallpaperWindow.style)
-  
-}
-
-// ---   SETINGS list ------===
-// settingList.addEventListener('click', settingClick)
-
-// function settingClick (e) {
-//     console.log(e.target)
+//
+// returnButtonWallpaper.addEventListener('click', returnWallpaperWindow )
+//
+// function returnWallpaperWindow (event) {
+//
+//
+//   console.log('click',event);
+//   modalWallpaperWindow.style.visibility = 'hidden';
+//   returnButton.style.visibility = 'visible';
+//
 // }
+
+//
+// // --MODAL SETTINGS BUTTON --
+// modalWallpaperButton.addEventListener("click", modalWallpaperWindowToggle );
+//
+// function modalWallpaperWindowToggle() {
+//   returnButton.style.visibility = 'hidden';
+//   modalWallpaperWindow.style.visibility = 'visible';
+//   modalWallpaperWindow.style.zIndex = 1;
+//   console.log(modalWallpaperWindow.style)
+//
+// }
+
 
 let taskTime = {
   year: "3456",
@@ -92,21 +133,16 @@ function Task(description, year, month, day, hours, minutes) {
 }
 
 const createTemplate = (task, index) => {
-  return `<div class="task-item-block  ${
-    task.completed ? "checked" : ""
-  }"  onclick="completeTask(${index})">
+  return `<div class="task-item-block  ${task.completed ? "checked" : ""
+    }"  onclick="completeTask(${index})">
 
-           
-        ${task.description}
+                   ${task.description}
                 
-
           <div class="data-block">
-            <p class="data-year">${task.year}.${
-    task.month < 9 ? "0" + (task.month + 1) : task.month + 1
-  }.${task.day < 9 ? "0" + task.day : task.day}</p>
-            <p class="data-time">${
-              task.hours < 10 ? "0" + task.hours : task.hours
-            } : ${task.minutes < 10 ? "0" + task.minutes : task.minutes}</p>
+            <p class="data-year">${task.year}.${task.month < 9 ? "0" + (task.month + 1) : task.month + 1
+    }.${task.day < 9 ? "0" + task.day : task.day}</p>
+            <p class="data-time">${task.hours < 10 ? "0" + task.hours : task.hours
+    } : ${task.minutes < 10 ? "0" + task.minutes : task.minutes}</p>
           </div>
 
           <div class="close-block">
