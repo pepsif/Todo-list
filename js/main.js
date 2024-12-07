@@ -14,6 +14,10 @@ const returnButtonWallpaper = document.querySelector(".modal-wallpaper-return-ic
 
 console.log(returnButtonWallpaper)
 
+returnButtonWallpaper.onclick = () => {
+  alert("df")
+}
+
 const wallPaperCardsContainer = document.querySelector(".modal-wallpaper__container");
 
 
@@ -55,11 +59,21 @@ const wallpaperCards = [ { id: 1, title: "Джинс", src: './assets/img/jeans1
 
 wallpaperCards.forEach(( item, index ) => {
 
-  wallPaperCardsContainer.innerHTML += `<div class="wallpaper-card">
-  <img class="card-image" 
-  src=" ${item.src} " alt="" srcset=""> <p> ${item.title} </p> </div>`;
+  wallPaperCardsContainer.innerHTML += `<div class="wallpaper-card" >
+    <img class="card-image" src=" ${item.src} " alt="" srcset=""> 
+    <p> ${item.title} </p>
+   </div>`;
+
   console.log(item, index)
 })
+
+wallPaperCardsContainer.addEventListener('click', e => {
+   if( e.target.parentNode.classList.contains("wallpaper-card") || e.target.classList.contains("wallpaper-card") ) {
+     console.log(e.target)
+   }
+
+});
+
 
 input ? input.addEventListener("click", clearInput) : null;
 
@@ -68,48 +82,6 @@ function clearInput(e) {
   console.log(e);
 }
 
-
-
-
-// // =========RETURN-BUTTON-COUNTER--------------
-//
-// settingButton.onclick = () => {
-//
-//   settingWindow.style.visibility = "visible";
-//   returnButton.style.visibility = "visible";
-//
-// };
-//
-// //  --RETURN BUTTOn --
-// returnButton.onclick = () => {
-//   settingWindow.style.visibility = "hidden";
-//   returnButton.style.visibility = 'hidden';
-//
-// };
-
-//
-// returnButtonWallpaper.addEventListener('click', returnWallpaperWindow )
-//
-// function returnWallpaperWindow (event) {
-//
-//
-//   console.log('click',event);
-//   modalWallpaperWindow.style.visibility = 'hidden';
-//   returnButton.style.visibility = 'visible';
-//
-// }
-
-//
-// // --MODAL SETTINGS BUTTON --
-// modalWallpaperButton.addEventListener("click", modalWallpaperWindowToggle );
-//
-// function modalWallpaperWindowToggle() {
-//   returnButton.style.visibility = 'hidden';
-//   modalWallpaperWindow.style.visibility = 'visible';
-//   modalWallpaperWindow.style.zIndex = 1;
-//   console.log(modalWallpaperWindow.style)
-//
-// }
 
 
 let taskTime = {
