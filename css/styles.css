@@ -18,7 +18,7 @@ body {
   font-family: "Comiс", sans-serif;
   background: url("../assets/img/paper2.jpg");
 
-  background-repeat: no-repeat;
+  /* background-repeat: no-repeat; */
   background-size: cover;
 }
 
