@@ -1,3 +1,4 @@
+const body = document.querySelector('body');
 const input = document.querySelector(".input");
 const buttonOk = document.querySelector(".button-ok");
 
@@ -46,10 +47,10 @@ function modalWallpaperWindowToggle() {
     returnButtonWallpaper.style.visibility = 'hidden';
   };
 
-
 }
 
-const wallpaperCards = [ { id: 1, title: "Джинс", src: './assets/img/jeans1.jpg'},
+const wallpaperCards = [ 
+  { id: 1, title: "Джинс", src: './assets/img/jeans1.jpg'},
   { id: 2, title: 'Джинс' , src: './assets/img/jeans2.jpg' } ,
   { id: 3, title: 'Дермантин' , src: './assets/img/dermantin.jpg' } ,
   { id: 4, title: 'Папір' , src: './assets/img/paper1.jpg' } ,
@@ -57,19 +58,28 @@ const wallpaperCards = [ { id: 1, title: "Джинс", src: './assets/img/jeans1
   
 ];
 
+function choiceWallpaperCard(element) {
+
+  // console.log(element)
+}
+
 wallpaperCards.forEach(( item, index ) => {
 
-  wallPaperCardsContainer.innerHTML += `<div class="wallpaper-card" >
+  wallPaperCardsContainer.innerHTML += `
+   <div class="wallpaper-card" onclick="choiceWallpaperCard()" id="${index}">
     <img class="card-image" src=" ${item.src} " alt="" srcset=""> 
     <p> ${item.title} </p>
    </div>`;
 
-  console.log(item, index)
+  // console.log(item, index)
 })
 
 wallPaperCardsContainer.addEventListener('click', e => {
    if( e.target.parentNode.classList.contains("wallpaper-card") || e.target.classList.contains("wallpaper-card") ) {
-     console.log(e.target)
+     const idCard = e.target.parentNode.id;
+    body.style.background = `url(${wallpaperCards[idCard]["src"] })`;
+   console.log(wallpaperCards[idCard].src, body.style.background);
+     // console.log(e.target.parentNode.id)
    }
 
 });
