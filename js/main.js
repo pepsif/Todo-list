@@ -13,7 +13,23 @@ const modalWallpaperButton = document.querySelector(".modal-wallpaper-button");
 const modalWallpaperWindow = document.querySelector(".modal-wallpaper-window");
 const returnButtonWallpaper = document.querySelector(".modal-wallpaper-return-icon");
 
-console.log(returnButtonWallpaper)
+
+const wallpaperCards = [
+  { id: 1, title: "Абстракція", src: './assets/img/bg/pngwing.com.png'},
+  { id: 2, title: 'Джинс' , src: './assets/img/bg/bg3.png' } ,
+  { id: 3, title: 'Дермантин' , src: './assets/img/dermantin.jpg' } ,
+  { id: 4, title: 'Папір1' , src: './assets/img/paper1.jpg' } ,
+  { id: 5, title: 'Папір2' , src: './assets/img/paper2.jpg' } ,
+  { id: 6, title: 'Папір3' , src: './assets/img/white_paper.jpeg' } ,
+
+];
+
+(localStorage.getItem('bgId')) ? setBodyBgFromLocalStorage() : alert("no id");
+
+function setBodyBgFromLocalStorage() {
+  body.style.background = `url( ${ wallpaperCards[localStorage.getItem('bgId')].src  } )`;
+
+}
 
 returnButtonWallpaper.onclick = () => {
   alert("df")
@@ -49,24 +65,13 @@ function modalWallpaperWindowToggle() {
 
 }
 
-const wallpaperCards = [ 
-  { id: 1, title: "Джинс", src: './assets/img/jeans1.jpg'},
-  { id: 2, title: 'Джинс' , src: './assets/img/jeans2.jpg' } ,
-  { id: 3, title: 'Дермантин' , src: './assets/img/dermantin.jpg' } ,
-  { id: 4, title: 'Папір' , src: './assets/img/paper1.jpg' } ,
-  { id: 5, title: 'Папір' , src: './assets/img/paper2.jpg' } ,
-  
-];
 
-function choiceWallpaperCard(element) {
 
-  // console.log(element)
-}
 
 wallpaperCards.forEach(( item, index ) => {
 
   wallPaperCardsContainer.innerHTML += `
-   <div class="wallpaper-card" onclick="choiceWallpaperCard()" id="${index}">
+   <div class="wallpaper-card"  id="${index}">
     <img class="card-image" src=" ${item.src} " alt="" srcset=""> 
     <p> ${item.title} </p>
    </div>`;
@@ -78,6 +83,9 @@ wallPaperCardsContainer.addEventListener('click', e => {
    if( e.target.parentNode.classList.contains("wallpaper-card") || e.target.classList.contains("wallpaper-card") ) {
      const idCard = e.target.parentNode.id;
     body.style.background = `url(${wallpaperCards[idCard]["src"] })`;
+    localStorage.setItem('bgId',idCard);
+
+
    console.log(wallpaperCards[idCard].src, body.style.background);
      // console.log(e.target.parentNode.id)
    }
