@@ -151,7 +151,7 @@ visibility: hidden;
 .modal-wallpaper-return-icon {
   width: 30px;
   position: absolute;
-  left: -2.5%;
+  left: 2.5%;
   top: 7%;
   background-color: white;
   padding: 10px;
