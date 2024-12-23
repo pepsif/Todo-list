@@ -24,7 +24,7 @@ const wallpaperCards = [
 
 ];
 
-(localStorage.getItem('bgId')) ? setBodyBgFromLocalStorage() : alert("no id");
+(localStorage.getItem('bgId')) ? setBodyBgFromLocalStorage() : console.log("no id");
 
 function setBodyBgFromLocalStorage() {
   body.style.background = `url( ${ wallpaperCards[localStorage.getItem('bgId')].src  } )`;
@@ -58,14 +58,18 @@ function modalWallpaperWindowToggle() {
   returnButtonWallpaper.style.visibility = 'visible';
   modalWallpaperWindow.style.zIndex = "1";
 
-  let test = document.querySelector(".modal-wallpaper-return-icon").onclick = () => {
+  settingWindow.style.visibility = "hidden";
+  returnButton.style.visibility = 'hidden';
+
+  document.querySelector(".modal-wallpaper-return-icon").onclick = () => {
     modalWallpaperWindow.style.visibility = 'hidden';
     returnButtonWallpaper.style.visibility = 'hidden';
+
+    settingWindow.style.visibility = "visible";
+    returnButton.style.visibility = 'visible';
   };
 
 }
-
-
 
 
 wallpaperCards.forEach(( item, index ) => {
