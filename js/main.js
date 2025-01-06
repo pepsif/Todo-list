@@ -4,6 +4,30 @@ const buttonOk = document.querySelector(".button-ok");
 
 const taskSection = document.querySelector(".task-section");
 
+ // --TOP BAR--
+const topBarArrow = document.querySelector(".top-bar__arrow");
+const topBar = document.querySelector(".top-bar");
+const topBarCloseButton = document.querySelector(".top-bar__close-icon");
+
+topBarArrow.addEventListener("click", (e) => {
+  topBarArrow.style.visibility = "hidden";
+  topBar.style.animationIterationCount = "1";
+ topBar.style.animation = "slideTopBar 1s";
+ topBar.style.animationFillMode = "forwards";
+
+});
+topBarCloseButton.addEventListener("click", (e) => {
+
+  topBar.style.animation = "slideTopBar 5s";
+  topBar.style.animationDirection = "reverse";
+  topBar.style.animationFillMode = "backwards";
+
+  setTimeout(() => {
+    topBarArrow.style.visibility = "visible";
+  },100)
+})
+
+console.log(topBarCloseButton)
 const settingButton = document.querySelector(".setting-button");
 const settingWindow = document.querySelector(".settings-window");
 
@@ -12,6 +36,8 @@ const returnButton = document.querySelector(".icon-return");
 const modalWallpaperButton = document.querySelector(".modal-wallpaper-button");
 const modalWallpaperWindow = document.querySelector(".modal-wallpaper-window");
 const returnButtonWallpaper = document.querySelector(".modal-wallpaper-return-icon");
+
+
 
 
 const wallpaperCards = [
@@ -172,7 +198,7 @@ const completeTask = (index) => {
 };
 
 buttonOk.addEventListener("click", () => {
-  if (input.value == "") return;
+  if (input.value == "" || "Нове Завдання") return;
   let currentData = new Date();
   let year = currentData.getFullYear();
   let month = currentData.getMonth();

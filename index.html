@@ -1,66 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link rel="icon" href="./assets/icons/todo-icon.svg">
-    <link rel="stylesheet" href="./css/styles.css" />
-    <link rel="stylesheet" href="./bootstrap-5.3.3-dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/styles.css"/>
+    <link rel="stylesheet" href="./bootstrap-5.3.3-dist/css/bootstrap.min.css"/>
 
     <title>To do App</title>
-  </head>
-  <body>
+</head>
+<body>
 
-    <div class="settings-window">
-      <div class="settings-container container">
+<div class="top-bar bg-secondary w-100 py-2 px-4">
+
+    <div class="top-bar__container container">
+        <div class="row position-relative" role="navigation">
+
+            <ul class="nav nav-pills">
+                <li class="nav-item">
+                    <a class="tabs-item nav-link text-black position-relative" aria-current="page" href="#">Виконані
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-success">
+                      12
+                   <span class="visually-hidden">unread messages</span>
+                        </span>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class="tabs-item nav-link text-black" href="#">Невиконані</a>
+                </li>
+                <li class="nav-item">
+                    <a class="tabs-item nav-link text-black" href="#">Купити</a>
+                </li>
+
+                <li class="nav-item ">
+                    <a class="tabs-item nav-link text-black" href="#">Зробити</a>
+                </li>
+
+                <li class="nav-item bg-danger">
+                    <a class="tabs-item nav-link text-black" href="#">Видалені</a>
+                </li>
+
+                <img class="top-bar__close-icon position-absolute top-0 start-100" src="./assets/icons/close.png" alt="">
+
+            </ul>
+        </div>
+    </div>
+</div>
+<img class="top-bar__arrow" src="./assets/icons/arrowDown.png" alt="down arrow" >
+
+<div class="settings-window">
+    <div class="settings-container container">
         <img
 
-          src="assets/icons/icon-return.png"
-          class="icon-return "
-          alt="icon return"
+                src="assets/icons/icon-return.png"
+                class="icon-return "
+                alt="icon return"
         />
 
         <ul class="settings-list">
-          <li class="settings-item modal-wallpaper-button">
-            <button class="modal-wallpaper-button">Wallpaper</button>
-          </li>
-          <li class="settings-item">About</li>
+            <li class="settings-item modal-wallpaper-button">
+                <button class="modal-wallpaper-button">Wallpaper</button>
+            </li>
+            <li class="settings-item">About</li>
         </ul>
-      </div>
     </div>
+</div>
 
-    <div class="modal-wallpaper-window">
-      <div class="modal-wallpaper__container container">
+<div class="modal-wallpaper-window">
+    <div class="modal-wallpaper__container container">
 
         <img
-          src="assets/icons/icon-return.png"
-          class="modal-wallpaper-return-icon"
-          alt="icon return"
+                src="assets/icons/icon-return.png"
+                class="modal-wallpaper-return-icon"
+                alt="icon return"
         />
-       
-      
-      </div>
+
+
     </div>
+</div>
 
 
 <!--    -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
 
-    <div class="main-block">
-      <div class="container input-container">
-        <button class="setting-button"      data-bs-target="#exampleModalToggle" data-bs-toggle="modal"></button>
-        <input class="input" value="Нове Завдання" onfocus="this. value=''" />
+<div class="main-block">
+    <div class="container input-container">
+        <button class="setting-button" data-bs-target="#exampleModalToggle" data-bs-toggle="modal"></button>
+        <input class="input" value="Нове Завдання" onfocus="this. value=''"/>
         <button class="button-ok"></button>
-      </div>
     </div>
+</div>
 
-    <section class="tabs">
-      <div class="container"></div>
-    </section>
+<section class="tabs">
+    <div class="container"></div>
+</section>
 
-    <section class="task-section"></section>
+<section class="task-section"></section>
 
-    <script src="js/main.js"></script>
+<script src="js/main.js"></script>
 
-    <script src="./bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
-  </body>
+<script src="./bootstrap-5.3.3-dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
