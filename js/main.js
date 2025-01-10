@@ -57,9 +57,9 @@ function setBodyBgFromLocalStorage() {
 
 }
 
-returnButtonWallpaper.onclick = () => {
-  alert("df")
-}
+// returnButtonWallpaper.onclick = () => {
+//   alert("df")
+// }
 
 const wallPaperCardsContainer = document.querySelector(".modal-wallpaper__container");
 
@@ -127,9 +127,8 @@ input ? input.addEventListener("click", clearInput) : null;
 
 function clearInput(e) {
   input.value = "";
-  console.log(e);
+ 
 }
-
 
 
 let taskTime = {
@@ -198,7 +197,9 @@ const completeTask = (index) => {
 };
 
 buttonOk.addEventListener("click", () => {
-  if (input.value == "" || "Нове Завдання") return;
+  
+   if (input.value == "" || input.value == "Нове Завдання") return;
+ 
   let currentData = new Date();
   let year = currentData.getFullYear();
   let month = currentData.getMonth();
@@ -206,9 +207,11 @@ buttonOk.addEventListener("click", () => {
   let hours = currentData.getHours();
   let minutes = currentData.getMinutes();
 
+  
   arrTasks.push(new Task(input.value, year, month, day, hours, minutes));
   updateLocal();
   fillHtmlList();
+  
   input.value = "Нове завдання";
 });
 
