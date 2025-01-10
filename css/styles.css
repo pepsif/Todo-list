@@ -27,10 +27,10 @@ body {
 /*--TABS --*/
 .top-bar {
   position: absolute;
-  top: -120px;
+  
   left: 50%;
   transform: translateX(-50%);
-  animation: slide-in 1s;
+  
   z-index: 1;
 
   & .top-bar__close-icon {
@@ -68,7 +68,7 @@ body {
     top: -10px;
   }
 }
-@keyframes slideTopBar {
+/* @keyframes slideTopBar {
   0% {
     top: -120px;
   }
@@ -78,7 +78,7 @@ body {
   100% {
     top: 0px;
   }
-}
+} */
 
 .nav {
   display: flex;

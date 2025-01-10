@@ -9,7 +9,10 @@ const topBarArrow = document.querySelector(".top-bar__arrow");
 const topBar = document.querySelector(".top-bar");
 const topBarCloseButton = document.querySelector(".top-bar__close-icon");
 
+console.dir(topBar)
+
 topBarArrow.addEventListener("click", (e) => {
+  topBar.style.top = "0px"
   topBarArrow.style.visibility = "hidden";
   topBar.style.animationIterationCount = "1";
  topBar.style.animation = "slideTopBar 1s";
@@ -17,7 +20,7 @@ topBarArrow.addEventListener("click", (e) => {
 
 });
 topBarCloseButton.addEventListener("click", (e) => {
-
+  topBar.style.top = "-120px"
   topBar.style.animation = "slideTopBar 5s";
   topBar.style.animationDirection = "reverse";
   topBar.style.animationFillMode = "backwards";
@@ -27,7 +30,6 @@ topBarCloseButton.addEventListener("click", (e) => {
   },100)
 })
 
-console.log(topBarCloseButton)
 const settingButton = document.querySelector(".setting-button");
 const settingWindow = document.querySelector(".settings-window");
 
