@@ -8,8 +8,59 @@ const taskSection = document.querySelector(".task-section");
 const topBarArrow = document.querySelector(".top-bar__arrow");
 const topBar = document.querySelector(".top-bar");
 const topBarCloseButton = document.querySelector(".top-bar__close-icon");
+const topBarBadge = document.querySelector(".top-bar .badge1");
 
-console.dir(topBar)
+const completedTaskButton = document.querySelector(".completed-all-task-button");
+const allTasksButton = document.querySelector(".all-task-button");
+const completedTaskSection = document.querySelector(".completed-task .container");
+const completedTaskItems = JSON.parse(localStorage.getItem("completeTasks"));
+
+completedTaskItems.forEach(( item, index ) => {
+
+  completedTaskSection.innerHTML += `
+   <div class="task-item-block" >
+      ${item.description}
+    <div class="data-block">
+     <p class="data-year"> ${item.day < 9 ? "0" + item.day : item.day}.${item.month < 9 ? "0" + (item.month + 1) : item.month + 1
+  }.${item.year} </p>
+            <p class="data-time">${item.hours < 10 ? "0" + item.hours : item.hours
+    } : ${item.minutes < 10 ? "0" + item.minutes : item.minutes}</p>
+    </div>
+    <div class="close-block">
+     <img class="icon-close" onclick="deleteTask(${index} )" src="./assets/icons/close.png" alt="button close">
+    </div>
+   </div>`;
+  // console.log(item, index)
+})
+
+console.log(completedTaskSection)
+    
+    // --ONCLICK on BUTTONS ---
+
+completedTaskButton.addEventListener("click", () => {
+ taskSection.style.transform = "rotateY(90deg)";
+ completedTaskSection.style.display = "flex";
+
+setTimeout(() => {
+  taskSection.style.display= "none";
+}, 500)
+})
+allTasksButton.addEventListener("click", () => {
+  taskSection.style.transform = "rotateY(0deg)";
+  completedTaskSection.style.display = "none";
+
+setTimeout(() => {
+  taskSection.style.display= "flex";
+}, 500)
+})
+
+if (localStorage.getItem('completeTasks') ) {
+  topBarBadge.textContent = JSON.parse(localStorage.getItem('completeTasks')).length;
+  
+} else {
+  topBarBadge.textContent = 0;
+}
+allTasksButton.children[0].textContent = JSON.parse(localStorage.getItem('tasks')).length;
 
 topBarArrow.addEventListener("click", (e) => {
   topBar.style.top = "0px"
@@ -59,9 +110,6 @@ function setBodyBgFromLocalStorage() {
 
 }
 
-// returnButtonWallpaper.onclick = () => {
-//   alert("df")
-// }
 
 const wallPaperCardsContainer = document.querySelector(".modal-wallpaper__container");
 
@@ -132,14 +180,18 @@ function clearInput(e) {
  
 }
 
-
 let taskTime = {
   year: "3456",
 };
+  
+       //  --CREATE ARR TASKS and arrCompletedTasks--
 let arrTasks;
-!localStorage.tasks
-  ? (arrTasks = [])
-  : (arrTasks = JSON.parse(localStorage.getItem("tasks")));
+let arrCompleteTasks = [];
+
+!localStorage.getItem('completeTasks') ? localStorage.setItem('completeTasks',JSON.stringify(arrCompleteTasks) ) : arrCompleteTasks = JSON.parse(localStorage.getItem('completeTasks'));
+
+!localStorage.tasks ? (arrTasks = []) : (arrTasks = JSON.parse(localStorage.getItem("tasks")));
+
 
 let todoItemElements = [];
 
@@ -154,7 +206,9 @@ function Task(description, year, month, day, hours, minutes) {
 }
 
 
-const createTemplate = (task, index) => {
+function createTemplate  (task, index)  {
+
+
   return `<div class="task-item-block  ${task.completed ? "checked" : ""
     }"  onclick="completeTask(${index})">
 
@@ -168,7 +222,7 @@ const createTemplate = (task, index) => {
           </div>
 
           <div class="close-block">
-           <img class="icon-close" onclick="deleteTask(${index})" src="./assets/icons/close.png" alt="button close">
+           <img class="icon-close" onclick="deleteTask(${index} )" src="./assets/icons/close.png" alt="button close">
           </div>
          
         </div> `;
@@ -186,6 +240,7 @@ const fillHtmlList = () => {
 
 const updateLocal = () => {
   localStorage.setItem("tasks", JSON.stringify(arrTasks));
+  localStorage.setItem("completeTasks",JSON.stringify(arrCompleteTasks));
 };
 
 const completeTask = (index) => {
@@ -218,7 +273,18 @@ buttonOk.addEventListener("click", () => {
   input.value = "Нове завдання";
 });
 
-const deleteTask = (index) => {
+function deleteTask  (index )  {
+
+  const task = arrTasks[index];
+  if (task.completed === true) {
+    arrCompleteTasks.push(task);
+    topBarBadge.textContent = arrCompleteTasks.length;
+  }
+  
+
+
+console.log( task  )
+
   todoItemElements[index].classList.add("delition");
   setTimeout(() => {
     arrTasks.splice(index, 1);
