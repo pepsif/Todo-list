@@ -1,4 +1,5 @@
 const body = document.querySelector('body');
+
 const input = document.querySelector(".input");
 const buttonOk = document.querySelector(".button-ok");
 
@@ -13,7 +14,16 @@ const topBarBadge = document.querySelector(".top-bar .badge1");
 const completedTaskButton = document.querySelector(".completed-all-task-button");
 const allTasksButton = document.querySelector(".all-task-button");
 const completedTaskSection = document.querySelector(".completed-task .container");
-const completedTaskItems = JSON.parse(localStorage.getItem("completeTasks"));
+const completedTaskItems = localStorage.getItem("completeTasks") ?  JSON.parse(localStorage.getItem("completeTasks")) : localStorage.setItem("completeTasks",JSON.stringify([]));
+
+// console.log(completedTaskItems)
+
+
+body.addEventListener("click", (e) => {
+  console.log("clicked",e.target.classList.value);
+})
+
+
 
 completedTaskItems.forEach(( item, index ) => {
 
@@ -35,7 +45,7 @@ completedTaskItems.forEach(( item, index ) => {
 
 console.log(completedTaskSection)
     
-    // --ONCLICK on BUTTONS ---
+    // --ONCLICK on TOPBAR BUTTONS ---
 
 completedTaskButton.addEventListener("click", () => {
  taskSection.style.transform = "rotateY(90deg)";
@@ -89,7 +99,6 @@ const returnButton = document.querySelector(".icon-return");
 const modalWallpaperButton = document.querySelector(".modal-wallpaper-button");
 const modalWallpaperWindow = document.querySelector(".modal-wallpaper-window");
 const returnButtonWallpaper = document.querySelector(".modal-wallpaper-return-icon");
-
 
 
 
