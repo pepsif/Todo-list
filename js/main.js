@@ -1,15 +1,21 @@
+
+
+console.log(topBarArrow)
+
+
 const body = document.querySelector('body');
 
 const input = document.querySelector(".input");
 const buttonOk = document.querySelector(".button-ok");
 
-const taskSection = document.querySelector(".task-section");
+const taskSection = document.querySelector(".task-section .container");
+const taskSectionTitle = document.querySelector(".task-section__title");
 
  // --TOP BAR--
-const topBarArrow = document.querySelector(".top-bar__arrow");
-const topBar = document.querySelector(".top-bar");
-const topBarCloseButton = document.querySelector(".top-bar__close-icon");
-const topBarBadge = document.querySelector(".top-bar .badge1");
+// const topBarArrow = document.querySelector(".top-bar__arrow");
+// const topBar = document.querySelector(".top-bar");
+// const topBarCloseButton = document.querySelector(".top-bar__close-icon");
+// const topBarBadge = document.querySelector(".top-bar .badge1");
 
 const completedTaskButton = document.querySelector(".completed-all-task-button");
 const allTasksButton = document.querySelector(".all-task-button");
@@ -21,8 +27,9 @@ const completedTaskItems = localStorage.getItem("completeTasks") ?  JSON.parse(l
 
 body.addEventListener("click", (e) => {
   console.log("clicked",e.target.classList.value);
-})
 
+  
+})
 
 
 completedTaskItems.forEach(( item, index ) => {

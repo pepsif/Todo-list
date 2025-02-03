@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="assets/todo-icon.svg" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/adaptive.css" />
+
+    <title>To do App</title>
+  
+ </head>
+  <body>
+
+       <!-- --TOP BAR -- -->
+    <div class="top-bar bg-secondary w-100 py-2 px-4">
+      <div class="top-bar__container container">
+        <div class="row position-relative" role="navigation">
+          <ul class="nav nav-pills">
+
+            <li class="nav-item">
+              <a class="tabs-item nav-link text-black position-relative completed-task-button all-task-button" href="#">Усі
+                <span
+                  class="position-absolute top-0 start-100 translate-middle badge2 rounded-pill bg-success text-white"
+                >27
+                  <span class="visually-hidden">unread messages</span>
+                </span>
+              </a>
+            </li>
+            
+
+            
+            <li class="nav-item">
+              <a
+                class="tabs-item nav-link text-black position-relative completed-task-button  completed-all-task-button"
+                aria-current="page"
+                href="#"
+                >Виконані
+                <span
+                  class="position-absolute top-0 start-100 translate-middle badge badge1 rounded-pill bg-success"
+                >
+                  <span class="visually-hidden">unread messages</span>
+                </span>
+              </a>
+            </li>
+           
+            <li class="nav-item">
+              <a class="tabs-item nav-link text-black" href="#">Купити</a>
+            </li>
+
+            
+
+            <li class="nav-item bg-danger">
+              <a class="tabs-item nav-link text-black" href="#">Видалені</a>
+            </li>
+
+            <img
+              class="top-bar__close-icon position-absolute top-0 start-100"
+              src="assets/close.png"
+              alt=""
+            />
+          </ul>
+        </div>
+      </div>
+    </div>
+    <img
+      class="top-bar__arrow"
+      src="assets/down_arrow.png"
+      alt="down arrow"
+    />
+
+    <div class="settings-window">
+      <div class="settings-container container">
+        <img
+          src="assets/icon-return.png"
+          class="icon-return"
+          alt="icon return"
+        />
+
+        <ul class="settings-list">
+          <li class="settings-item modal-wallpaper-button">
+            <button class="modal-wallpaper-button">Wallpaper</button>
+          </li>
+          <li class="settings-item">About</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="modal-wallpaper-window">
+      <div class="modal-wallpaper__container container">
+        <img
+          src="assets/icon-return.png"
+          class="modal-wallpaper-return-icon"
+          alt="icon return"
+        />
+      </div>
+    </div>
+
+    <!--    -&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+
+    <div class="main-block">
+      <div class="container input-container">
+        <button class="setting-button" title="settings"></button>
+        <input class="input" value="Нове Завдання" onfocus="this. value=''" title="input task" placeholder="Нове Завдання" />
+        <button class="button-ok" title="add task"></button>
+      </div>
+    </div>
+
+    <!-- --TASK SECTION -- -->
+    <section class="task-section">
+      <h1 class="task-section__title fs-5 fst-italic text-center">Всі завдання</h1>
+      <div class="task-section__container container">
+        
+      </div>
+    </section>
+
+    <!-- --COMPLETED TASK SECTION -- -->
+
+    <section class="completed-task">
+        <div class="completed-task-container container">
+          
+        </div>
+    </section>
+
+    <script type="module" src="js/main.js"></script>
+
+    <script src="bootstrap-5.3.3-dist/js/bootstrap.js"></script>
+  </body>
+</html>
