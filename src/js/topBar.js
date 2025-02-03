@@ -16,13 +16,15 @@ export function topBarBadgeTaskCount() {
 }
 
 export function topBarInitializeListener() {
+
+              // --ADD BODY LISTENER --
   body.addEventListener("click", (e) => {
     //   --All tasks button--
     if (e.target.classList.contains("all-task-button")) {
       const tasksArr = JSON.parse(localStorage.getItem("tasks"));
       taskSection.innerHTML = "";
       taskSection.style.display = "flex";
-      
+
       tasksArr.forEach((item, index) => {
         taskSection.innerHTML += createTemplate(item, index);
       });

@@ -153,14 +153,12 @@ export function createTemplate(task, index) {
         </div> `;
 };
 
-export const fillTasksInHtmlList = (buttonName) => {
+export const fillTasksInHtmlList = () => {
     taskSection.innerHTML = "";
     topBarBadgeTaskCount();
 
-    console.log(buttonName)
- 
-    
-    if (buttonName === "all" arrTasks.length > 0) {
+
+    if (arrTasks.length > 0) {
         arrTasks.forEach((item, index) => {
             taskSection.innerHTML += createTemplate(item, index);
         });

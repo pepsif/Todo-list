@@ -50,10 +50,10 @@ body {
   }
 }
 .top-bar__arrow {
-  width: 50px;
+  width: 30px;
   position: absolute;
 
-  transform: translate(-50%,-10px);
+  transform: translate(-50%,-3px);
   left: 50%;
   
   opacity: 0.8;
@@ -75,17 +75,6 @@ body {
     top: -10px;
   }
 }
-/* @keyframes slideTopBar {
-  0% {
-    top: -120px;
-  }
-  50% {
-    top: -80px;
-  }
-  100% {
-    top: 0px;
-  }
-} */
 
 .nav {
   display: flex;
