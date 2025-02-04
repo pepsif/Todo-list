@@ -1,4 +1,7 @@
 import {topBarBadgeTaskCount, topBarInitializeListener} from './topBar';
+
+
+
  topBarInitializeListener();
  topBarBadgeTaskCount();
 
