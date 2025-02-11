@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const { watch } = require('fs');
 
 module.exports = {
     entry: './src/js/main.js',
@@ -10,6 +11,7 @@ module.exports = {
         filename: 'main.js',
         clean: true
     },
+    watch: true,
     module: {
         rules: [
             {
@@ -42,10 +44,11 @@ module.exports = {
         new CopyWebpackPlugin({
             patterns: [
                 { from: 'src/assets', to: 'assets' },
-                { from: 'src/bootstrap-5.3.3-dist', to: 'bootstrap' },
+                { from: 'src/bootstrap', to: 'bootstrap' },
                 { from: 'src/css', to: 'css' } // Додаємо стилі
             ]
         })
     ],
-    mode: 'development'
+    mode: 'development',
+    
 };

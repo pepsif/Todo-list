@@ -18,8 +18,10 @@ export function topBarBadgeTaskCount() {
 export function topBarInitializeListener() {
 
               // --ADD BODY LISTENER --
+
   body.addEventListener("click", (e) => {
-    //   --All tasks button--
+
+    //   --All tasks button in Topbar--
     if (e.target.classList.contains("all-task-button")) {
       const tasksArr = JSON.parse(localStorage.getItem("tasks"));
       taskSection.innerHTML = "";
@@ -30,7 +32,7 @@ export function topBarInitializeListener() {
       });
     }
 
-    //   --completed-all-task-button--
+    //   --completed-all-task-button   in Topbar--
 
     if (e.target.classList.contains("completed-all-task-button")) {
       const completedTasksArr = JSON.parse(
@@ -45,7 +47,16 @@ export function topBarInitializeListener() {
       console.log(completedTasksArr);
     }
 
-    console.log("click element", e.target.classList);
+        //  --DELETE TASK on taskItem push--
+
+        if(e.target.classList.contains("icon-close")) {
+          const closeButton = e.target.dataset.index;
+        console.log("icon close", closeButton )
+        }
+
+
+        //  --END BODY LISTENER  --
+    // console.log("click element", e.target);
   });
 
   //    --TOP bAR SLIDE Animation--

@@ -1,0 +1,12 @@
+body {
+    
+}
+
+@media (max-width:600px) {
+
+    .task-item-block {
+        font-size: 26px;
+       
+    }
+}
+

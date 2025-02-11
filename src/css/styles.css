@@ -17,6 +17,7 @@ body {
 
   /* background-repeat: no-repeat; */
   background-size: cover;
+ 
 }
 
 .container {
@@ -33,6 +34,7 @@ body {
   transform: translateX(-50%);
   transition: all 1s;
   z-index: 1;
+  background-color: rgb(1 1 1 / 63%) !important;
 
   .badge2 {
     font-size: 0.70em;
