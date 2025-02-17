@@ -8,7 +8,7 @@ module.exports = {
     entry: './src/js/main.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'main.js',
+        filename: 'js/main.js',
         clean: true
     },
     watch: true,

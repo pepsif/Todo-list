@@ -54,6 +54,10 @@ export function topBarInitializeListener() {
         console.log("icon close", closeButton )
         }
 
+        // click on TASK ITEM
+    if( e.target.closest(".task-item-block") ) {
+      console.log("click task item block", e.target.dataset.index);
+    }
 
         //  --END BODY LISTENER  --
     // console.log("click element", e.target);

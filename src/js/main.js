@@ -1,7 +1,6 @@
 import {topBarBadgeTaskCount, topBarInitializeListener} from './topBar';
 
 
-
  topBarInitializeListener();
  topBarBadgeTaskCount();
 
@@ -137,8 +136,8 @@ function Task(description, year, month, day, hours, minutes) {
 
 export function createTemplate(task, index) {
 
-    return `<div class="task-item-block  ${task.completed ? "checked" : ""
-    }"  onclick="completeTask(${index})">${task.description}
+    return `<div class="task-item-block  ${task.completed ? "checked" : "" }"  data-index="${index}">
+    ${task.description}
                   
           <div class="data-block">
             <p class="data-year"> ${task.day < 9 ? "0" + task.day : task.day}.${task.month < 9 ? "0" + (task.month + 1) : task.month + 1
