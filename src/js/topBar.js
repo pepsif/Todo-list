@@ -71,13 +71,49 @@ export function topBarInitializeListener() {
 
         if(e.target.classList.contains("icon-close")) {
           const closeButtonIndex = e.target.dataset.index;
-        console.log("icon close", closeButtonIndex )
+        
+
+        const arrFromLocaleStorage = JSON.parse(localStorage.getItem("tasks"));
+        const elemFromLocaleStorage = arrFromLocaleStorage[closeButtonIndex];
+ 
+        arrFromLocaleStorage.splice(closeButtonIndex, 1);
+        localStorage.setItem("tasks", JSON.stringify(arrFromLocaleStorage));
+
+        
+        taskSection.innerHTML = "";
+
+        arrFromLocaleStorage.forEach((item, index) => {
+
+          taskSection.innerHTML += createTemplate(item, index);
+        });
+
+        console.log("icon close", elemFromLocaleStorage );
         }
 
         // click on TASK ITEM
     if( e.target.closest(".task-item-block") ) {
       const taskItemBlock = e.target.closest(".task-item-block");
-      console.log("click task item block", taskItemBlock.dataset.index);
+      // console.log("click task item block", taskItemBlock.dataset.index  );
+
+      // Check AllTASKS BUTTON CLICK
+      if ( allTaskBlock.classList.contains("active") ) {
+        const arrFromLocaleStorage = JSON.parse(localStorage.getItem("tasks"));
+        const elemFromLocaleStorage = arrFromLocaleStorage[taskItemBlock.dataset.index];
+
+        elemFromLocaleStorage.completed = !elemFromLocaleStorage.completed;
+
+        localStorage.setItem("tasks", JSON.stringify(arrFromLocaleStorage));
+
+        taskSection.innerHTML = "";
+
+        arrFromLocaleStorage.forEach((item, index) => {
+
+          taskSection.innerHTML += createTemplate(item, index);
+        });
+      } 
+
+     
+
     }
 
         //  --END BODY LISTENER  --

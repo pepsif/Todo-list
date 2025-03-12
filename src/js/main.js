@@ -93,7 +93,6 @@ wallPaperCardsContainer.addEventListener('click', e => {
         body.style.background = `url(${wallpaperCards[idCard]["src"]})`;
         localStorage.setItem('bgId', idCard);
 
-
         // console.log(e.target.parentNode.id)
     }
 
@@ -106,7 +105,6 @@ function clearInput(e) {
     input.value = "";
 
 }
-
 
 let taskTime = {
     year: "3456",
