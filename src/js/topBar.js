@@ -4,35 +4,49 @@ const body = document.querySelector("body");
 
 export const topBarArrow = document.querySelector(".top-bar__arrow");
 export const topBar = document.querySelector(".top-bar");
+
+export const allTaskBlock = document.querySelector(".all-task-block");
+export const completedTaskBlock = document.querySelector(".completed-task-block");
+
+
 export const topBarCloseButton = document.querySelector(".top-bar__close-icon");
 export const topBarBadge1 = document.querySelector(".top-bar .badge1");
 export const topBarBadge2 = document.querySelector(".top-bar .badge2");
 
 export function topBarBadgeTaskCount() {
-  topBarBadge1.textContent = JSON.parse(
-    localStorage.getItem("completeTasks")
-  ).length;
-  topBarBadge2.textContent = JSON.parse(localStorage.getItem("tasks")).length;
+  topBarBadge1.textContent = localStorage.getItem("completeTasks") ? JSON.parse(localStorage.getItem("completeTasks") ).length : localStorage.setItem("completeTasks",[])
+  topBarBadge2.textContent = localStorage.getItem("tasks") ? JSON.parse(localStorage.getItem("tasks")).length : localStorage.setItem("tasks",[]);
 }
 
 export function topBarInitializeListener() {
 
-              // --ADD BODY LISTENER --
+  allTaskBlock.classList.add("active");
+  allTaskBlock.style.background = "green";
+
+              // --ADD document BODY LISTENER --
 
   body.addEventListener("click", (e) => {
 
-    //   --All tasks button in Topbar--
+    //   --CLICK "All tasks button" in Topbar--
     if (e.target.classList.contains("all-task-button")) {
       const tasksArr = JSON.parse(localStorage.getItem("tasks"));
       taskSection.innerHTML = "";
       taskSection.style.display = "flex";
 
+      e.target.parentNode.classList.add("active");
+      completedTaskBlock.classList.remove("active");
+      
+        allTaskBlock.style.background = "green";
+        completedTaskBlock.style.background = "none";
+      
+      console.log(e.target.parentNode);
+       
       tasksArr.forEach((item, index) => {
         taskSection.innerHTML += createTemplate(item, index);
       });
     }
 
-    //   --completed-all-task-button   in Topbar--
+    //   --CLICK "completed-all-task-button"   in Topbar--
 
     if (e.target.classList.contains("completed-all-task-button")) {
       const completedTasksArr = JSON.parse(
@@ -41,22 +55,29 @@ export function topBarInitializeListener() {
 
       taskSection.innerHTML = "";
 
+
+      e.target.parentNode.classList.add("active");
+      completedTaskBlock.style.background = "green";
+      allTaskBlock.style.background = "none";
+      allTaskBlock.classList.remove("active");
+
       completedTasksArr.forEach((item, index) => {
         taskSection.innerHTML += createTemplate(item, index);
       });
       console.log(completedTasksArr);
     }
 
-        //  --DELETE TASK on taskItem push--
+        //  --CLICK "DELETE TASK" on taskItem push--
 
         if(e.target.classList.contains("icon-close")) {
-          const closeButton = e.target.dataset.index;
-        console.log("icon close", closeButton )
+          const closeButtonIndex = e.target.dataset.index;
+        console.log("icon close", closeButtonIndex )
         }
 
         // click on TASK ITEM
     if( e.target.closest(".task-item-block") ) {
-      console.log("click task item block", e.target.dataset.index);
+      const taskItemBlock = e.target.closest(".task-item-block");
+      console.log("click task item block", taskItemBlock.dataset.index);
     }
 
         //  --END BODY LISTENER  --

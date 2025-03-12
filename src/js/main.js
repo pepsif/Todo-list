@@ -31,7 +31,7 @@ const wallpaperCards = [
 
 ];
 
-(localStorage.getItem('bgId')) ? setBodyBgFromLocalStorage() : console.log("no id");
+(localStorage.getItem('bgId')) ? setBodyBgFromLocalStorage() : "";
 
 
 function setBodyBgFromLocalStorage() {
@@ -151,7 +151,7 @@ export function createTemplate(task, index) {
           </div>
          
         </div> `;
-};
+}
 
 export const fillTasksInHtmlList = () => {
     taskSection.innerHTML = "";
