@@ -55,7 +55,6 @@ export function topBarInitializeListener() {
 
       taskSection.innerHTML = "";
 
-
       e.target.parentNode.classList.add("active");
       completedTaskBlock.style.background = "green";
       allTaskBlock.style.background = "none";
@@ -70,15 +69,15 @@ export function topBarInitializeListener() {
         //  --CLICK "DELETE TASK" on taskItem push--
 
         if(e.target.classList.contains("icon-close")) {
-          const closeButtonIndex = e.target.dataset.index;
+          
+          e.stopPropagation();
+          const closeButtonIndex = Number( e.target.dataset.index ) ;
         
-
         const arrFromLocaleStorage = JSON.parse(localStorage.getItem("tasks"));
         const elemFromLocaleStorage = arrFromLocaleStorage[closeButtonIndex];
  
         arrFromLocaleStorage.splice(closeButtonIndex, 1);
         localStorage.setItem("tasks", JSON.stringify(arrFromLocaleStorage));
-
         
         taskSection.innerHTML = "";
 
@@ -88,10 +87,13 @@ export function topBarInitializeListener() {
         });
 
         console.log("icon close", elemFromLocaleStorage );
+
+        return;
         }
 
-        // click on TASK ITEM
-    if( e.target.closest(".task-item-block") ) {
+        // click on TASK ITEM   
+    if( e.target.closest(".task-item-block" )  ) {
+      
       const taskItemBlock = e.target.closest(".task-item-block");
       // console.log("click task item block", taskItemBlock.dataset.index  );
 
@@ -113,7 +115,7 @@ export function topBarInitializeListener() {
       } 
 
      
-
+       return;
     }
 
         //  --END BODY LISTENER  --

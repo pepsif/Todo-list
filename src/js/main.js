@@ -103,7 +103,6 @@ input ? input.addEventListener("click", clearInput) : null;
 
 function clearInput(e) {
     input.value = "";
-
 }
 
 let taskTime = {
@@ -130,7 +129,6 @@ function Task(description, year, month, day, hours, minutes) {
     this.hours = hours;
     this.minutes = minutes;
 }
-
 
 export function createTemplate(task, index) {
 
@@ -170,16 +168,16 @@ export function updateLocal ()  {
     localStorage.setItem("completeTasks", JSON.stringify(arrCompleteTasks));
 };
 
-function completeTask (index)  {
-    arrTasks[index].completed = !arrTasks[index].completed;
-    if (arrTasks[index].completed) {
-        todoItemElements[index].classList.add("checked");
-    } else {
-        todoItemElements[index].classList.remove("checked");
-    }
-    updateLocal();
-    fillTasksInHtmlList();
-};
+// function completeTask (index)  {
+//     arrTasks[index].completed = !arrTasks[index].completed;
+//     if (arrTasks[index].completed) {
+//         todoItemElements[index].classList.add("checked");
+//     } else {
+//         todoItemElements[index].classList.remove("checked");
+//     }
+    
+//     fillTasksInHtmlList();
+// };
 
 
 function deleteTask(index) {
@@ -209,8 +207,7 @@ buttonOk.addEventListener("click", () => {
     let day = currentData.getDate();
     let hours = currentData.getHours();
     let minutes = currentData.getMinutes();
-  
-  
+    
     arrTasks.push(new Task(input.value, year, month, day, hours, minutes));
     updateLocal();
     fillTasksInHtmlList();
