@@ -98,10 +98,9 @@ wallPaperCardsContainer.addEventListener('click', e => {
 
 });
 
-
 input ? input.addEventListener("click", clearInput) : null;
 
-function clearInput(e) {
+function clearInput() {
     input.value = "";
 }
 
@@ -110,13 +109,8 @@ let taskTime = {
 };
 
 //  --CREATE ARR TASKS and arrCompletedTasks--
-let arrTasks;
-let arrCompleteTasks = [];
-
-!localStorage.getItem('completeTasks') ? localStorage.setItem('completeTasks', JSON.stringify(arrCompleteTasks)) : arrCompleteTasks = JSON.parse(localStorage.getItem('completeTasks'));
-
-!localStorage.tasks ? (arrTasks = []) : (arrTasks = JSON.parse(localStorage.getItem("tasks")));
-
+export let arrTasks = localStorage.getItem("tasks") ? JSON.parse(localStorage.getItem("tasks")) : (localStorage.setItem("tasks", JSON.stringify([])), []);
+export let arrCompleteTasks = localStorage.getItem("completeTasks") ? JSON.parse(localStorage.getItem("completeTasks")) : (localStorage.setItem("completeTasks", JSON.stringify([])), []);
 
 let todoItemElements = [];
 
@@ -153,7 +147,6 @@ export const fillTasksInHtmlList = () => {
     taskSection.innerHTML = "";
     topBarBadgeTaskCount();
 
-
     if (arrTasks.length > 0) {
         arrTasks.forEach((item, index) => {
             taskSection.innerHTML += createTemplate(item, index);
@@ -180,25 +173,25 @@ export function updateLocal ()  {
 // };
 
 
-function deleteTask(index) {
+// function deleteTask(index) {
 
-    const task = arrTasks[index];
-    task.completed === true ? arrCompleteTasks.push() : alert("fg");
+//     const task = arrTasks[index];
+//     task.completed === true ? arrCompleteTasks.push() : alert("fg");
 
-// console.log( task  )
+// // console.log( task  )
 
-    todoItemElements[index].classList.add("delition");
-    setTimeout(() => {
-        arrTasks.splice(index, 1);
-        updateLocal();
-        fillTasksInHtmlList();
-    }, 500);
-};
-
-
+//     todoItemElements[index].classList.add("delition");
+//     setTimeout(() => {
+//         arrTasks.splice(index, 1);
+//         updateLocal();
+//         fillTasksInHtmlList();
+//     }, 500);
+// };
 
 buttonOk.addEventListener("click", () => {
 
+    console.log("click",arrTasks );
+    
     if (input.value == "" || input.value == "Нове Завдання") return;
   
     let currentData = new Date();
@@ -214,6 +207,5 @@ buttonOk.addEventListener("click", () => {
   
     input.value = "Нове завдання";
   });
-
 
 fillTasksInHtmlList();

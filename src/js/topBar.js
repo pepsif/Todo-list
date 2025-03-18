@@ -1,4 +1,4 @@
-import { taskSection, createTemplate, fillTasksInHtmlList } from "./main";
+import { taskSection, createTemplate, fillTasksInHtmlList , arrTasks , arrCompleteTasks } from "./main";
 
 const body = document.querySelector("body");
 
@@ -44,6 +44,8 @@ export function topBarInitializeListener() {
       tasksArr.forEach((item, index) => {
         taskSection.innerHTML += createTemplate(item, index);
       });
+
+      return;
     }
 
     //   --CLICK "completed-all-task-button"   in Topbar--
@@ -64,6 +66,8 @@ export function topBarInitializeListener() {
         taskSection.innerHTML += createTemplate(item, index);
       });
       console.log(completedTasksArr);
+
+      return
     }
 
         //  --CLICK "DELETE TASK" on taskItem push--
@@ -71,14 +75,21 @@ export function topBarInitializeListener() {
         if(e.target.classList.contains("icon-close")) {
           
           e.stopPropagation();
+
+          
           const closeButtonIndex = Number( e.target.dataset.index ) ;
         
         const arrFromLocaleStorage = JSON.parse(localStorage.getItem("tasks"));
         const elemFromLocaleStorage = arrFromLocaleStorage[closeButtonIndex];
  
         arrFromLocaleStorage.splice(closeButtonIndex, 1);
+        arrTasks.splice(closeButtonIndex, 1);
+        
         localStorage.setItem("tasks", JSON.stringify(arrFromLocaleStorage));
         
+        console.log("click icon close arrTASKS", arrTasks );
+        console.log("click icon close arrFromLocaleStorage", arrFromLocaleStorage );
+
         taskSection.innerHTML = "";
 
         arrFromLocaleStorage.forEach((item, index) => {
