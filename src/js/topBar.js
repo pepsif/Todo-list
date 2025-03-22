@@ -105,7 +105,7 @@ export function topBarInitializeListener() {
         // click on TASK ITEM   
     if( e.target.closest(".task-item-block" )  ) {
       
-      const taskItemBlock = e.target.closest(".task-item-block");
+      const taskItemBlock =  e.target.closest(".task-item-block");
       // console.log("click task item block", taskItemBlock.dataset.index  );
 
       // Check AllTASKS BUTTON CLICK
@@ -114,6 +114,10 @@ export function topBarInitializeListener() {
         const elemFromLocaleStorage = arrFromLocaleStorage[taskItemBlock.dataset.index];
 
         elemFromLocaleStorage.completed = !elemFromLocaleStorage.completed;
+        // arrTasks[Number(taskItemBlock.dataset.index)] = elemFromLocaleStorage.completed;
+
+
+        console.log( arrTasks[Number(taskItemBlock.dataset.index)] );
 
         localStorage.setItem("tasks", JSON.stringify(arrFromLocaleStorage));
 

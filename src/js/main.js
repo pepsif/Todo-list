@@ -161,38 +161,13 @@ export function updateLocal ()  {
     localStorage.setItem("completeTasks", JSON.stringify(arrCompleteTasks));
 };
 
-// function completeTask (index)  {
-//     arrTasks[index].completed = !arrTasks[index].completed;
-//     if (arrTasks[index].completed) {
-//         todoItemElements[index].classList.add("checked");
-//     } else {
-//         todoItemElements[index].classList.remove("checked");
-//     }
-    
-//     fillTasksInHtmlList();
-// };
-
-
-// function deleteTask(index) {
-
-//     const task = arrTasks[index];
-//     task.completed === true ? arrCompleteTasks.push() : alert("fg");
-
-// // console.log( task  )
-
-//     todoItemElements[index].classList.add("delition");
-//     setTimeout(() => {
-//         arrTasks.splice(index, 1);
-//         updateLocal();
-//         fillTasksInHtmlList();
-//     }, 500);
-// };
-
 buttonOk.addEventListener("click", () => {
 
-    console.log("click",arrTasks );
+    console.log("ARRTASKS",arrTasks );
     
     if (input.value == "" || input.value == "Нове Завдання") return;
+
+
   
     let currentData = new Date();
     let year = currentData.getFullYear();
