@@ -115,12 +115,12 @@ export function topBarInitializeListener() {
 
       // Check AllTASKS BUTTON CLICK
       if (allTaskBlock.classList.contains("active")) {
-        const arrFromLocaleStorage = JSON.parse(localStorage.getItem("tasks"));
-        const elemFromLocaleStorage = arrFromLocaleStorage[taskItemBlock.dataset.index];
+        // const arrFromLocaleStorage = JSON.parse(localStorage.getItem("tasks"));
+        // const elemFromLocaleStorage = arrFromLocaleStorage[taskItemBlock.dataset.index];
 
         const elemFromArrTasks = arrTasks[taskItemBlock.dataset.index];
 
-        elemFromLocaleStorage.completed = !elemFromLocaleStorage.completed;
+        // elemFromLocaleStorage.completed = !elemFromLocaleStorage.completed;
         elemFromArrTasks.completed = !elemFromArrTasks.completed;
 
         // arrTasks[Number(taskItemBlock.dataset.index)] = elemFromLocaleStorage.completed;
@@ -131,7 +131,7 @@ export function topBarInitializeListener() {
 
         taskSection.innerHTML = "";
 
-        arrFromLocaleStorage.forEach((item, index) => {
+        arrTasks.forEach((item, index) => {
           taskSection.innerHTML += createTemplate(item, index);
         });
 
