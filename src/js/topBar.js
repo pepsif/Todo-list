@@ -1,4 +1,11 @@
-import { taskSection, createTemplate, fillTasksInHtmlList , arrTasks , arrCompleteTasks } from "./main";
+import {
+  taskSection,
+  createTemplate,
+  updateLocalTasks,
+  fillTasksInHtmlList,
+  arrTasks,
+  arrCompleteTasks,
+} from "./main";
 
 const body = document.querySelector("body");
 
@@ -6,27 +13,30 @@ export const topBarArrow = document.querySelector(".top-bar__arrow");
 export const topBar = document.querySelector(".top-bar");
 
 export const allTaskBlock = document.querySelector(".all-task-block");
-export const completedTaskBlock = document.querySelector(".completed-task-block");
-
+export const completedTaskBlock = document.querySelector(
+  ".completed-task-block"
+);
 
 export const topBarCloseButton = document.querySelector(".top-bar__close-icon");
 export const topBarBadge1 = document.querySelector(".top-bar .badge1");
 export const topBarBadge2 = document.querySelector(".top-bar .badge2");
 
 export function topBarBadgeTaskCount() {
-  topBarBadge1.textContent = localStorage.getItem("completeTasks") ? JSON.parse(localStorage.getItem("completeTasks") ).length : localStorage.setItem("completeTasks",[])
-  topBarBadge2.textContent = localStorage.getItem("tasks") ? JSON.parse(localStorage.getItem("tasks")).length : localStorage.setItem("tasks",[]);
+  topBarBadge1.textContent = localStorage.getItem("completeTasks")
+    ? JSON.parse(localStorage.getItem("completeTasks")).length
+    : localStorage.setItem("completeTasks", []);
+  topBarBadge2.textContent = localStorage.getItem("tasks")
+    ? JSON.parse(localStorage.getItem("tasks")).length
+    : localStorage.setItem("tasks", []);
 }
 
 export function topBarInitializeListener() {
-
   allTaskBlock.classList.add("active");
   allTaskBlock.style.background = "green";
 
-              // --ADD document BODY LISTENER --
+  // --ADD document BODY LISTENER --
 
   body.addEventListener("click", (e) => {
-
     //   --CLICK "All tasks button" in Topbar--
     if (e.target.classList.contains("all-task-button")) {
       const tasksArr = JSON.parse(localStorage.getItem("tasks"));
@@ -35,12 +45,12 @@ export function topBarInitializeListener() {
 
       e.target.parentNode.classList.add("active");
       completedTaskBlock.classList.remove("active");
-      
-        allTaskBlock.style.background = "green";
-        completedTaskBlock.style.background = "none";
-      
-      console.log(e.target.parentNode);
-       
+
+      allTaskBlock.style.background = "green";
+      completedTaskBlock.style.background = "none";
+
+      // console.log(e.target.parentNode);
+
       tasksArr.forEach((item, index) => {
         taskSection.innerHTML += createTemplate(item, index);
       });
@@ -65,75 +75,76 @@ export function topBarInitializeListener() {
       completedTasksArr.forEach((item, index) => {
         taskSection.innerHTML += createTemplate(item, index);
       });
-      console.log(completedTasksArr);
+      // console.log(completedTasksArr);
 
-      return
+      return;
     }
 
-        //  --CLICK "DELETE TASK" on taskItem push--
+    //  --CLICK "DELETE TASK" on taskItem push--
 
-        if(e.target.classList.contains("icon-close")) {
-          
-          e.stopPropagation();
+    if (e.target.classList.contains("icon-close")) {
+      e.stopPropagation();
 
-          
-          const closeButtonIndex = Number( e.target.dataset.index ) ;
-        
-        const arrFromLocaleStorage = JSON.parse(localStorage.getItem("tasks"));
-        const elemFromLocaleStorage = arrFromLocaleStorage[closeButtonIndex];
- 
-        arrFromLocaleStorage.splice(closeButtonIndex, 1);
-        arrTasks.splice(closeButtonIndex, 1);
-        
-        localStorage.setItem("tasks", JSON.stringify(arrFromLocaleStorage));
-        
-        console.log("click icon close arrTASKS", arrTasks );
-        console.log("click icon close arrFromLocaleStorage", arrFromLocaleStorage );
+      const closeButtonIndex = Number(e.target.dataset.index);
 
-        taskSection.innerHTML = "";
+      const arrFromLocaleStorage = JSON.parse(localStorage.getItem("tasks"));
+      const elemFromLocaleStorage = arrFromLocaleStorage[closeButtonIndex];
 
-        arrFromLocaleStorage.forEach((item, index) => {
+      arrFromLocaleStorage.splice(closeButtonIndex, 1);
+      arrTasks.splice(closeButtonIndex, 1);
 
-          taskSection.innerHTML += createTemplate(item, index);
-        });
+      localStorage.setItem("tasks", JSON.stringify(arrFromLocaleStorage));
 
-        console.log("icon close", elemFromLocaleStorage );
+      // console.log("click icon close arrTASKS", arrTasks );
+      // console.log("click icon close arrFromLocaleStorage", arrFromLocaleStorage );
 
-        return;
-        }
+      taskSection.innerHTML = "";
 
-        // click on TASK ITEM   
-    if( e.target.closest(".task-item-block" )  ) {
-      
-      const taskItemBlock =  e.target.closest(".task-item-block");
-      // console.log("click task item block", taskItemBlock.dataset.index  );
+      arrFromLocaleStorage.forEach((item, index) => {
+        taskSection.innerHTML += createTemplate(item, index);
+      });
+
+      console.log("icon close", elemFromLocaleStorage);
+
+      return;
+    }
+
+    // click on TASK ITEM
+    if (e.target.closest(".task-item-block")) {
+      const taskItemBlock = e.target.closest(".task-item-block");
 
       // Check AllTASKS BUTTON CLICK
-      if ( allTaskBlock.classList.contains("active") ) {
+      if (allTaskBlock.classList.contains("active")) {
         const arrFromLocaleStorage = JSON.parse(localStorage.getItem("tasks"));
         const elemFromLocaleStorage = arrFromLocaleStorage[taskItemBlock.dataset.index];
 
+        const elemFromArrTasks = arrTasks[taskItemBlock.dataset.index];
+
         elemFromLocaleStorage.completed = !elemFromLocaleStorage.completed;
+        elemFromArrTasks.completed = !elemFromArrTasks.completed;
+
         // arrTasks[Number(taskItemBlock.dataset.index)] = elemFromLocaleStorage.completed;
 
+        console.log( elemFromArrTasks );
 
-        console.log( arrTasks[Number(taskItemBlock.dataset.index)] );
-
-        localStorage.setItem("tasks", JSON.stringify(arrFromLocaleStorage));
+        localStorage.setItem("tasks", JSON.stringify(arrTasks));
 
         taskSection.innerHTML = "";
 
         arrFromLocaleStorage.forEach((item, index) => {
-
           taskSection.innerHTML += createTemplate(item, index);
         });
-      } 
 
-     
-       return;
+        // Перезагрузить текущую страницу
+        // document.location.reload();
+
+        console.log(arrTasks);
+      }
+
+      return;
     }
 
-        //  --END BODY LISTENER  --
+    //  --END BODY LISTENER  --
     // console.log("click element", e.target);
   });
 

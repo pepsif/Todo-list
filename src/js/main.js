@@ -1,4 +1,5 @@
 import {topBarBadgeTaskCount, topBarInitializeListener} from './topBar';
+import { test ,} from './functions/testFunc';
 
 
  topBarInitializeListener();
@@ -114,7 +115,7 @@ export let arrCompleteTasks = localStorage.getItem("completeTasks") ? JSON.parse
 
 let todoItemElements = [];
 
-function Task(description, year, month, day, hours, minutes) {
+function Task( description, year, month, day, hours, minutes ) {
     this.description = description;
     this.completed = false;
     this.year = year;
@@ -156,19 +157,21 @@ export const fillTasksInHtmlList = () => {
    
 };
 
-export function updateLocal ()  {
+export function updateLocalTasks ()  {
     localStorage.setItem("tasks", JSON.stringify(arrTasks));
-    localStorage.setItem("completeTasks", JSON.stringify(arrCompleteTasks));
+   
 };
+export function updateLocalCompletedTasks() {
+ localStorage.setItem("completeTasks", JSON.stringify(arrCompleteTasks));
+}
+
+console.log(arrTasks)
 
 buttonOk.addEventListener("click", () => {
-
-    console.log("ARRTASKS",arrTasks );
     
     if (input.value == "" || input.value == "Нове Завдання") return;
 
-
-  
+ 
     let currentData = new Date();
     let year = currentData.getFullYear();
     let month = currentData.getMonth();
@@ -176,10 +179,16 @@ buttonOk.addEventListener("click", () => {
     let hours = currentData.getHours();
     let minutes = currentData.getMinutes();
     
+    console.log("arrTask before push", arrTasks);
+
     arrTasks.push(new Task(input.value, year, month, day, hours, minutes));
-    updateLocal();
-    fillTasksInHtmlList();
+
+    console.log("arrTask after push", arrTasks);
+    
   
+    updateLocalTasks();
+    fillTasksInHtmlList();
+
     input.value = "Нове завдання";
   });
 
